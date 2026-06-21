@@ -15,7 +15,7 @@ import ContactSection from '../components/sections/ContactSection';
 
 const Home = () => {
   return (
-    <div className="min-h-screen bg-secondary text-slate-100 antialiased flex flex-col justify-between">
+    <div className="min-h-screen bg-white dark:bg-[#030712] text-gray-900 dark:text-slate-100 antialiased flex flex-col justify-between transition-colors duration-300">
       {/* Header Navigation */}
       <Navbar />
 

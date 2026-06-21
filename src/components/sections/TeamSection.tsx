@@ -5,7 +5,10 @@ import { Linkedin, Twitter, Github } from '../ui/Icons';
 
 const TeamSection = () => {
   return (
-    <section id="team" className="py-20 bg-[#020617] text-white">
+    <section id="team" className="py-20 bg-white dark:bg-[#030712] text-gray-900 dark:text-white transition-colors duration-300">
+      {/* Top separator */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-200 dark:via-slate-800 to-transparent" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header Section */}
@@ -13,10 +16,10 @@ const TeamSection = () => {
           <span className="text-xs font-bold uppercase tracking-wider text-primary">
             Our Talent
           </span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">
             Meet the Experts Behind Innovatech
           </h2>
-          <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
+          <p className="text-gray-500 dark:text-slate-400 text-sm sm:text-base leading-relaxed">
             Our multi-disciplinary team brings together decades of software development and creative expertise to steer projects toward successful launches.
           </p>
         </div>
@@ -26,10 +29,10 @@ const TeamSection = () => {
           {teamMembers.map((member) => (
             <Card
               key={member.id}
-              className="p-0 overflow-hidden border-slate-800/80 hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-1.5 transition-all duration-300 group flex flex-col items-center bg-[#0a0f1d] text-center"
+              className="p-0 overflow-hidden border-gray-200 dark:border-slate-800/80 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-1.5 transition-all duration-300 group flex flex-col items-center bg-white dark:bg-[#0a0f1d] text-center"
             >
               {/* Profile Image Frame */}
-              <div className="relative w-full aspect-square bg-slate-100 overflow-hidden">
+              <div className="relative w-full aspect-square bg-gray-50 dark:bg-slate-100 overflow-hidden">
                 <img
                   src={member.image}
                   alt={member.name}
@@ -77,7 +80,7 @@ const TeamSection = () => {
 
               {/* Detail Info */}
               <div className="p-6 space-y-1">
-                <h3 className="text-base font-extrabold text-white group-hover:text-primary transition-colors">
+                <h3 className="text-base font-extrabold text-gray-900 dark:text-white group-hover:text-primary transition-colors">
                   {member.name}
                 </h3>
                 <p className="text-xs font-semibold text-primary/85">

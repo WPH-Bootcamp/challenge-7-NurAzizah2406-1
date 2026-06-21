@@ -93,15 +93,18 @@ const ContactSection = () => {
   const closeModal = () => setModalState('idle');
 
   return (
-    <section id="contact" className="py-24 bg-secondary text-white relative">
+    <section id="contact" className="py-24 bg-white dark:bg-[#030712] text-gray-900 dark:text-white relative transition-colors duration-300">
+      {/* Top separator */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-200 dark:via-slate-800 to-transparent" />
+
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-12">
 
         {/* Header Section */}
         <div className="text-center space-y-4">
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
             Ready to Start? Let's Talk.
           </h2>
-          <p className="text-slate-400 text-sm sm:text-base">
+          <p className="text-gray-500 dark:text-slate-400 text-sm sm:text-base">
             Tell us what you need, and we'll get back to you soon.
           </p>
         </div>
@@ -110,7 +113,7 @@ const ContactSection = () => {
         <form onSubmit={handleSubmit} className="space-y-6" noValidate>
           {/* Name Field */}
           <div className="space-y-2">
-            <label htmlFor="contact-name" className="text-xs font-bold text-slate-300 uppercase tracking-widest">
+            <label htmlFor="contact-name" className="text-xs font-bold text-gray-700 dark:text-slate-300 uppercase tracking-widest">
               Name
             </label>
             <input
@@ -121,8 +124,10 @@ const ContactSection = () => {
               onChange={handleInputChange}
               placeholder="Enter your name"
               aria-label="Your name"
-              className={`w-full px-4 py-3.5 rounded-xl border text-sm transition-all focus:outline-none focus:ring-2 focus:ring-primary/20 bg-[#0a0f1d] text-white placeholder:text-slate-600 ${
-                errors.name ? 'border-red-500 bg-red-950/10' : 'border-slate-800 focus:border-primary'
+              className={`w-full px-4 py-3.5 rounded-xl border text-sm transition-all focus:outline-none focus:ring-2 focus:ring-primary/20 bg-white dark:bg-[#0a0f1d] text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-slate-600 ${
+                errors.name 
+                  ? 'border-red-500 bg-red-50/50 dark:bg-red-950/10' 
+                  : 'border-gray-200 dark:border-slate-800 focus:border-primary dark:focus:border-primary'
               }`}
             />
             {errors.name && <p role="alert" className="text-xs text-red-500 font-medium">{errors.name}</p>}
@@ -130,7 +135,7 @@ const ContactSection = () => {
 
           {/* Email Field */}
           <div className="space-y-2">
-            <label htmlFor="contact-email" className="text-xs font-bold text-slate-300 uppercase tracking-widest">
+            <label htmlFor="contact-email" className="text-xs font-bold text-gray-700 dark:text-slate-300 uppercase tracking-widest">
               Email
             </label>
             <input
@@ -141,8 +146,10 @@ const ContactSection = () => {
               onChange={handleInputChange}
               placeholder="Enter your email"
               aria-label="Your email address"
-              className={`w-full px-4 py-3.5 rounded-xl border text-sm transition-all focus:outline-none focus:ring-2 focus:ring-primary/20 bg-[#0a0f1d] text-white placeholder:text-slate-600 ${
-                errors.email ? 'border-red-500 bg-red-950/10' : 'border-slate-800 focus:border-primary'
+              className={`w-full px-4 py-3.5 rounded-xl border text-sm transition-all focus:outline-none focus:ring-2 focus:ring-primary/20 bg-white dark:bg-[#0a0f1d] text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-slate-600 ${
+                errors.email 
+                  ? 'border-red-500 bg-red-50/50 dark:bg-red-950/10' 
+                  : 'border-gray-200 dark:border-slate-800 focus:border-primary dark:focus:border-primary'
               }`}
             />
             {errors.email && <p role="alert" className="text-xs text-red-500 font-medium">{errors.email}</p>}
@@ -150,7 +157,7 @@ const ContactSection = () => {
 
           {/* Message Field */}
           <div className="space-y-2">
-            <label htmlFor="contact-message" className="text-xs font-bold text-slate-300 uppercase tracking-widest">
+            <label htmlFor="contact-message" className="text-xs font-bold text-gray-700 dark:text-slate-300 uppercase tracking-widest">
               Message
             </label>
             <textarea
@@ -161,8 +168,10 @@ const ContactSection = () => {
               rows={5}
               placeholder="Enter your message"
               aria-label="Your message"
-              className={`w-full px-4 py-3.5 rounded-xl border text-sm transition-all focus:outline-none focus:ring-2 focus:ring-primary/20 bg-[#0a0f1d] text-white placeholder:text-slate-600 resize-none ${
-                errors.message ? 'border-red-500 bg-red-950/10' : 'border-slate-800 focus:border-primary'
+              className={`w-full px-4 py-3.5 rounded-xl border text-sm transition-all focus:outline-none focus:ring-2 focus:ring-primary/20 bg-white dark:bg-[#0a0f1d] text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-slate-600 resize-none ${
+                errors.message 
+                  ? 'border-red-500 bg-red-50/50 dark:bg-red-950/10' 
+                  : 'border-gray-200 dark:border-slate-800 focus:border-primary dark:focus:border-primary'
               }`}
             />
             {errors.message && <p role="alert" className="text-xs text-red-500 font-medium">{errors.message}</p>}
@@ -170,7 +179,7 @@ const ContactSection = () => {
 
           {/* Services Checkboxes */}
           <div className="space-y-3 pt-2">
-            <label className="text-xs font-bold text-slate-300 uppercase tracking-widest block">
+            <label className="text-xs font-bold text-gray-700 dark:text-slate-300 uppercase tracking-widest block">
               Services
             </label>
 
@@ -180,7 +189,7 @@ const ContactSection = () => {
                 return (
                   <label
                     key={service}
-                    className="flex items-center gap-3 cursor-pointer select-none text-sm font-medium text-slate-300 hover:text-white transition-colors"
+                    className="flex items-center gap-3 cursor-pointer select-none text-sm font-medium text-gray-650 dark:text-slate-300 hover:text-gray-900 dark:hover:text-white transition-colors"
                   >
                     <input
                       type="checkbox"
@@ -194,7 +203,7 @@ const ContactSection = () => {
                       className={`w-5 h-5 rounded flex items-center justify-center border transition-all ${
                         isChecked
                           ? 'bg-primary border-primary text-white shadow-md shadow-primary/20 scale-105'
-                          : 'border-slate-700 bg-[#0a0f1d]'
+                          : 'border-gray-250 dark:border-slate-700 bg-white dark:bg-[#0a0f1d]'
                       }`}
                     >
                       {isChecked && (
@@ -244,7 +253,7 @@ const ContactSection = () => {
           aria-labelledby="modal-title"
           onClick={(e) => { if (e.target === e.currentTarget) closeModal(); }}
         >
-          <div className="bg-[#0d1117] border border-slate-800 rounded-3xl p-8 sm:p-10 max-w-sm w-full text-center shadow-2xl animate-scale-in">
+          <div className="bg-white dark:bg-[#0d1117] border border-gray-150 dark:border-slate-800 rounded-3xl p-8 sm:p-10 max-w-sm w-full text-center shadow-2xl animate-scale-in">
 
             {/* Icon */}
             <div className="flex justify-center mb-6">
@@ -286,10 +295,10 @@ const ContactSection = () => {
             </div>
 
             {/* Text */}
-            <h3 id="modal-title" className="text-lg font-extrabold text-white mb-2">
+            <h3 id="modal-title" className="text-lg font-extrabold text-gray-900 dark:text-white mb-2">
               {modalState === 'success' ? 'Message Received!' : 'Oops! Something went wrong.'}
             </h3>
-            <p className="text-sm text-slate-400 leading-relaxed mb-8">
+            <p className="text-sm text-gray-500 dark:text-slate-400 leading-relaxed mb-8">
               {modalState === 'success'
                 ? "Thanks for reaching out — we'll get back to you as soon as possible."
                 : "We couldn't send your message. Please try again or check your connection."}

@@ -41,29 +41,29 @@ const FAQSection = () => {
   };
 
   return (
-    <section id="faq" className="py-24 bg-secondary text-white relative">
+    <section id="faq" className="py-24 bg-white dark:bg-[#030712] text-gray-900 dark:text-white relative transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           
           {/* Left Column: FAQ Accordion */}
           <div className="lg:col-span-7 space-y-8">
             <div className="space-y-4">
-              <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
+              <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
                 Need Help? Start Here.
               </h2>
-              <p className="text-slate-400 text-sm">
+              <p className="text-gray-500 dark:text-slate-400 text-sm">
                 Everything you need to know — all in one place.
               </p>
             </div>
 
-            <div className="border-t border-slate-800/80 divide-y divide-slate-800/80">
+            <div className="border-t border-gray-200 dark:border-slate-800/80 divide-y divide-gray-200 dark:divide-slate-800/80">
               {faqs.map((faq, idx) => {
                 const isOpen = openIndex === idx;
                 return (
                   <div key={idx} className="py-5">
                     <button
                       onClick={() => toggleFAQ(idx)}
-                      className="w-full flex items-center justify-between text-left font-bold text-sm sm:text-base text-white hover:text-primary transition-colors cursor-pointer select-none"
+                      className="w-full flex items-center justify-between text-left font-bold text-sm sm:text-base text-gray-900 dark:text-white hover:text-primary dark:hover:text-primary transition-colors cursor-pointer select-none"
                     >
                       <span>{faq.question}</span>
                       <span className="w-5 h-5 flex items-center justify-center select-none shrink-0 ml-4">
@@ -80,7 +80,7 @@ const FAQSection = () => {
                         isOpen ? 'max-h-24 opacity-100 mt-3' : 'max-h-0 opacity-0'
                       }`}
                     >
-                      <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                      <p className="text-xs sm:text-sm text-gray-500 dark:text-slate-400 leading-relaxed">
                         {faq.answer}
                       </p>
                     </div>
