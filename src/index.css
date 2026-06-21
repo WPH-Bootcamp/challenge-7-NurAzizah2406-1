@@ -11,7 +11,7 @@
   
   --color-primary: #ff6b4a;
   --color-primary-hover: #ff5733;
-  --color-primary-light: #ff6b4a/15;
+  --color-primary-light: rgba(255, 107, 74, 0.15);
   
   --color-secondary: #030712;
   --color-secondary-hover: #090f1d;

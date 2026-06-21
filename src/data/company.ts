@@ -1,4 +1,4 @@
-import { CompanyInfo } from '../types';
+import type { CompanyInfo } from '../types';
 
 export const companyInfo: CompanyInfo = {
   name: 'Your Logo', // Will render the logo icon and title

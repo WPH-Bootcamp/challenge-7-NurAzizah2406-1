@@ -1,5 +1,5 @@
 import React from 'react';
-import { CardProps } from '../../types';
+import type { CardProps } from '../../types';
 
 const Card = ({ children, className = '', onClick }: CardProps) => {
   const isClickable = !!onClick;

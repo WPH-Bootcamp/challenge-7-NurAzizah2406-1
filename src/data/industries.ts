@@ -1,4 +1,4 @@
-import { IndustryTab } from '../types';
+import type { IndustryTab } from '../types';
 
 export const industryTabs: IndustryTab[] = [
   {

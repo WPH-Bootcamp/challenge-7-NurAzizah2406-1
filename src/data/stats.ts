@@ -1,4 +1,4 @@
-import { StatItem } from '../types';
+import type { StatItem } from '../types';
 
 export const stats: StatItem[] = [
   {

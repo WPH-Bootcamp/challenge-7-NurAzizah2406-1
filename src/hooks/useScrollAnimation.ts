@@ -11,7 +11,7 @@ import { useEffect, useRef, RefObject } from 'react';
 export function useScrollAnimation<T extends HTMLElement>(
   animationClass: string = 'animate-fade-up',
   threshold: number = 0.15
-): RefObject<T> {
+): RefObject<T | null> {
   const ref = useRef<T>(null);
 
   useEffect(() => {
