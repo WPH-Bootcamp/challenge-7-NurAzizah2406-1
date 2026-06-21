@@ -27,39 +27,42 @@ const AboutSection = () => {
   ];
 
   return (
-    <section id="about" className="py-20 bg-secondary text-white relative">
+    <section id="about" className="py-20 bg-gray-50 relative">
+      {/* Top separator */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          
+
           {/* Visual Grid representing values */}
           <div ref={leftRef} className="lg:col-span-6 order-2 lg:order-1 opacity-0">
             <div className="grid grid-cols-2 gap-4">
               {/* Card 1 */}
-              <div className="p-6 bg-[#0a0f1d] border border-slate-800/80 rounded-xl space-y-3 hover:shadow-md hover:border-primary/30 transition-all">
+              <div className="p-6 bg-white border border-gray-100 rounded-xl space-y-3 hover:shadow-md hover:border-primary/20 transition-all shadow-sm">
                 <div className="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center font-bold text-lg">💡</div>
-                <h3 className="font-bold text-white">Innovation</h3>
-                <p className="text-xs text-slate-400">Always adopting modern technologies and design practices.</p>
+                <h3 className="font-bold text-gray-900">Innovation</h3>
+                <p className="text-xs text-gray-500">Always adopting modern technologies and design practices.</p>
               </div>
 
               {/* Card 2 */}
-              <div className="p-6 bg-[#0a0f1d] border border-slate-800/80 rounded-xl space-y-3 translate-y-4 hover:shadow-md hover:border-primary/30 transition-all">
-                <div className="w-10 h-10 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold text-lg">💎</div>
-                <h3 className="font-bold text-white">Quality</h3>
-                <p className="text-xs text-slate-400">Meticulous pixel-perfect UI execution and robust testing.</p>
+              <div className="p-6 bg-white border border-gray-100 rounded-xl space-y-3 translate-y-4 hover:shadow-md hover:border-primary/20 transition-all shadow-sm">
+                <div className="w-10 h-10 rounded-lg bg-emerald-50 text-emerald-500 flex items-center justify-center font-bold text-lg">💎</div>
+                <h3 className="font-bold text-gray-900">Quality</h3>
+                <p className="text-xs text-gray-500">Meticulous pixel-perfect UI execution and robust testing.</p>
               </div>
 
               {/* Card 3 */}
-              <div className="p-6 bg-[#0a0f1d] border border-slate-800/80 rounded-xl space-y-3 -translate-y-4 hover:shadow-md hover:border-primary/30 transition-all">
-                <div className="w-10 h-10 rounded-lg bg-blue-500/10 text-blue-400 flex items-center justify-center font-bold text-lg">🤝</div>
-                <h3 className="font-bold text-white">Trust</h3>
-                <p className="text-xs text-slate-400">Reliable partners committed to your long-term success.</p>
+              <div className="p-6 bg-white border border-gray-100 rounded-xl space-y-3 -translate-y-4 hover:shadow-md hover:border-primary/20 transition-all shadow-sm">
+                <div className="w-10 h-10 rounded-lg bg-blue-50 text-blue-500 flex items-center justify-center font-bold text-lg">🤝</div>
+                <h3 className="font-bold text-gray-900">Trust</h3>
+                <p className="text-xs text-gray-500">Reliable partners committed to your long-term success.</p>
               </div>
 
               {/* Card 4 */}
-              <div className="p-6 bg-[#0a0f1d] border border-slate-800/80 rounded-xl space-y-3 hover:shadow-md hover:border-primary/30 transition-all">
-                <div className="w-10 h-10 rounded-lg bg-indigo-500/10 text-indigo-400 flex items-center justify-center font-bold text-lg">⚡</div>
-                <h3 className="font-bold text-white">Speed</h3>
-                <p className="text-xs text-slate-400">Fast, streamlined coding that hits delivery timelines.</p>
+              <div className="p-6 bg-white border border-gray-100 rounded-xl space-y-3 hover:shadow-md hover:border-primary/20 transition-all shadow-sm">
+                <div className="w-10 h-10 rounded-lg bg-indigo-50 text-indigo-500 flex items-center justify-center font-bold text-lg">⚡</div>
+                <h3 className="font-bold text-gray-900">Speed</h3>
+                <p className="text-xs text-gray-500">Fast, streamlined coding that hits delivery timelines.</p>
               </div>
             </div>
           </div>
@@ -70,13 +73,16 @@ const AboutSection = () => {
               <span className="text-xs font-bold uppercase tracking-wider text-primary">
                 About Our Company
               </span>
-              <h2 className="text-3xl sm:text-4xl font-bold text-white leading-tight">
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight">
                 Empowering Businesses through Custom Tech Solutions
               </h2>
             </div>
-            
-            <p className="text-slate-400 leading-relaxed">
-              Founded on the belief that digital solutions should be both powerful and delightful, <strong>{companyInfo.name}</strong> has helped hundreds of teams redefine their products. We combine standard development practices with custom designs to deliver measurable growth.
+
+            <p className="text-gray-500 leading-relaxed">
+              Founded on the belief that digital solutions should be both powerful and delightful,{' '}
+              <strong className="text-gray-800">{companyInfo.name}</strong> has helped hundreds of teams
+              redefine their products. We combine standard development practices with custom designs to
+              deliver measurable growth.
             </p>
 
             {/* Checklist */}
@@ -87,8 +93,8 @@ const AboutSection = () => {
                     <Check size={12} />
                   </div>
                   <div>
-                    <h4 className="text-sm font-semibold text-white">{point.title}</h4>
-                    <p className="text-xs text-slate-400 mt-1">{point.desc}</p>
+                    <h4 className="text-sm font-semibold text-gray-900">{point.title}</h4>
+                    <p className="text-xs text-gray-500 mt-1">{point.desc}</p>
                   </div>
                 </div>
               ))}

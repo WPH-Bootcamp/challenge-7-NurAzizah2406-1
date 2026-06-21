@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { navItems } from '../../data/navigation';
 import { Menu, X } from '../ui/Icons';
 import Button from '../ui/Button';
@@ -9,11 +9,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      setScrolled(window.scrollY > 20);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -32,16 +28,22 @@ const Navbar = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ${
         scrolled
-          ? 'bg-secondary/90 backdrop-blur-md shadow-lg border-b border-slate-900/80 py-4'
-          : 'bg-transparent py-6'
+          ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-100 py-3'
+          : 'bg-transparent py-5'
       }`}
+      role="navigation"
+      aria-label="Main navigation"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          {/* Logo with Orange Diamond Mark */}
+          {/* Logo */}
           <div className="flex-shrink-0">
-            <a href="#home" className="flex items-center gap-2.5 text-xl font-bold text-white tracking-tight">
-              {/* Overlapping diamonds icon from Figma logo */}
+            <a
+              href="#home"
+              className={`flex items-center gap-2.5 text-xl font-bold tracking-tight transition-colors ${
+                scrolled ? 'text-gray-900' : 'text-gray-900'
+              }`}
+            >
               <div className="relative w-6 h-6 flex items-center justify-center">
                 <svg className="w-full h-full text-primary" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M12 2L4 10L12 18L20 10L12 2Z" fill="currentColor" fillOpacity="0.8" />
@@ -58,7 +60,11 @@ const Navbar = () => {
               <a
                 key={item.label}
                 href={item.href}
-                className="text-sm font-medium text-slate-300 hover:text-primary transition-colors duration-200"
+                className={`text-sm font-medium transition-colors duration-200 ${
+                  scrolled
+                    ? 'text-gray-600 hover:text-primary'
+                    : 'text-gray-600 hover:text-primary'
+                }`}
               >
                 {item.label}
               </a>
@@ -72,13 +78,18 @@ const Navbar = () => {
             </Button>
           </div>
 
-          {/* Mobile hamburger menu toggle */}
+          {/* Mobile hamburger */}
           <div className="flex md:hidden">
             <button
               onClick={toggleMenu}
               type="button"
-              className="text-slate-300 hover:text-white focus:outline-none p-2 rounded-lg hover:bg-slate-800 transition-colors"
+              className={`p-2 rounded-lg transition-colors ${
+                scrolled
+                  ? 'text-gray-700 hover:text-primary hover:bg-gray-100'
+                  : 'text-gray-700 hover:text-primary hover:bg-gray-100'
+              }`}
               aria-label="Toggle menu"
+              aria-expanded={isOpen}
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -86,26 +97,26 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Drawer menu */}
+      {/* Mobile Drawer */}
       <div
-        className={`md:hidden absolute left-0 right-0 bg-secondary border-b border-slate-900 shadow-2xl transition-all duration-300 ease-in-out ${
+        className={`md:hidden absolute left-0 right-0 bg-white border-b border-gray-100 shadow-2xl transition-all duration-300 ease-in-out ${
           isOpen
             ? 'opacity-100 translate-y-0 pointer-events-auto'
             : 'opacity-0 -translate-y-4 pointer-events-none'
         }`}
       >
-        <div className="px-4 pt-2 pb-6 space-y-3 sm:px-6">
+        <div className="px-4 pt-2 pb-6 space-y-1 sm:px-6">
           {navItems.map((item) => (
             <a
               key={item.label}
               href={item.href}
               onClick={() => setIsOpen(false)}
-              className="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-300 hover:text-primary hover:bg-slate-900 transition-all"
+              className="block px-3 py-2.5 rounded-lg text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 transition-all"
             >
               {item.label}
             </a>
           ))}
-          <div className="px-3 pt-2">
+          <div className="px-3 pt-3">
             <Button
               variant="primary"
               className="w-full justify-center rounded-full font-semibold"

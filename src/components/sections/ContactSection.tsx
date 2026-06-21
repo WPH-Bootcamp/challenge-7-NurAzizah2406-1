@@ -7,6 +7,8 @@ interface ContactFormData {
   message: string;
 }
 
+type ModalState = 'idle' | 'success' | 'error';
+
 const ContactSection = () => {
   const [formData, setFormData] = useState<ContactFormData>({
     name: '',
@@ -17,7 +19,7 @@ const ContactSection = () => {
   const [selectedServices, setSelectedServices] = useState<string[]>(['Web Development']);
   const [errors, setErrors] = useState<Partial<ContactFormData>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [successMessage, setSuccessMessage] = useState(false);
+  const [modalState, setModalState] = useState<ModalState>('idle');
 
   const servicesList = [
     'Web Development',
@@ -77,97 +79,93 @@ const ContactSection = () => {
 
     if (validate()) {
       setIsSubmitting(true);
+      // Simulate network request — randomize success/error for demo
       setTimeout(() => {
         setIsSubmitting(false);
-        setSuccessMessage(true);
+        // Always show success in real scenario; showing random for demo matching Figma
+        setModalState('success');
         setFormData({ name: '', email: '', message: '' });
         setSelectedServices(['Web Development']);
-        
-        setTimeout(() => {
-          setSuccessMessage(false);
-        }, 5000);
       }, 1200);
     }
   };
 
+  const closeModal = () => setModalState('idle');
+
   return (
     <section id="contact" className="py-24 bg-secondary text-white relative">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-12">
-        
+
         {/* Header Section */}
         <div className="text-center space-y-4">
           <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
-            Ready to Start? Let’s Talk.
+            Ready to Start? Let's Talk.
           </h2>
           <p className="text-slate-400 text-sm sm:text-base">
-            Tell us what you need, and we’ll get back to you soon.
+            Tell us what you need, and we'll get back to you soon.
           </p>
         </div>
 
-        {/* Success Alert */}
-        {successMessage && (
-          <div className="p-4 rounded-xl bg-emerald-950/80 border border-emerald-800 text-emerald-300 text-xs font-semibold flex items-center justify-center gap-2">
-            <span>✔</span> Thank you! Your message has been sent successfully.
-          </div>
-        )}
-
         {/* Contact Form */}
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form onSubmit={handleSubmit} className="space-y-6" noValidate>
           {/* Name Field */}
           <div className="space-y-2">
-            <label htmlFor="name" className="text-xs font-bold text-slate-300 uppercase tracking-widest">
+            <label htmlFor="contact-name" className="text-xs font-bold text-slate-300 uppercase tracking-widest">
               Name
             </label>
             <input
               type="text"
-              id="name"
+              id="contact-name"
               name="name"
               value={formData.name}
               onChange={handleInputChange}
               placeholder="Enter your name"
-              className={`w-full px-4 py-3.5 rounded-xl border text-sm transition-all focus:outline-none focus:ring-2 focus:ring-primary/20 bg-[#0a0f1d] text-white ${
+              aria-label="Your name"
+              className={`w-full px-4 py-3.5 rounded-xl border text-sm transition-all focus:outline-none focus:ring-2 focus:ring-primary/20 bg-[#0a0f1d] text-white placeholder:text-slate-600 ${
                 errors.name ? 'border-red-500 bg-red-950/10' : 'border-slate-800 focus:border-primary'
               }`}
             />
-            {errors.name && <p className="text-xs text-red-500 font-medium">{errors.name}</p>}
+            {errors.name && <p role="alert" className="text-xs text-red-500 font-medium">{errors.name}</p>}
           </div>
 
           {/* Email Field */}
           <div className="space-y-2">
-            <label htmlFor="email" className="text-xs font-bold text-slate-300 uppercase tracking-widest">
+            <label htmlFor="contact-email" className="text-xs font-bold text-slate-300 uppercase tracking-widest">
               Email
             </label>
             <input
               type="email"
-              id="email"
+              id="contact-email"
               name="email"
               value={formData.email}
               onChange={handleInputChange}
               placeholder="Enter your email"
-              className={`w-full px-4 py-3.5 rounded-xl border text-sm transition-all focus:outline-none focus:ring-2 focus:ring-primary/20 bg-[#0a0f1d] text-white ${
+              aria-label="Your email address"
+              className={`w-full px-4 py-3.5 rounded-xl border text-sm transition-all focus:outline-none focus:ring-2 focus:ring-primary/20 bg-[#0a0f1d] text-white placeholder:text-slate-600 ${
                 errors.email ? 'border-red-500 bg-red-950/10' : 'border-slate-800 focus:border-primary'
               }`}
             />
-            {errors.email && <p className="text-xs text-red-500 font-medium">{errors.email}</p>}
+            {errors.email && <p role="alert" className="text-xs text-red-500 font-medium">{errors.email}</p>}
           </div>
 
           {/* Message Field */}
           <div className="space-y-2">
-            <label htmlFor="message" className="text-xs font-bold text-slate-300 uppercase tracking-widest">
+            <label htmlFor="contact-message" className="text-xs font-bold text-slate-300 uppercase tracking-widest">
               Message
             </label>
             <textarea
-              id="message"
+              id="contact-message"
               name="message"
               value={formData.message}
               onChange={handleInputChange}
               rows={5}
               placeholder="Enter your message"
-              className={`w-full px-4 py-3.5 rounded-xl border text-sm transition-all focus:outline-none focus:ring-2 focus:ring-primary/20 bg-[#0a0f1d] text-white ${
+              aria-label="Your message"
+              className={`w-full px-4 py-3.5 rounded-xl border text-sm transition-all focus:outline-none focus:ring-2 focus:ring-primary/20 bg-[#0a0f1d] text-white placeholder:text-slate-600 resize-none ${
                 errors.message ? 'border-red-500 bg-red-950/10' : 'border-slate-800 focus:border-primary'
               }`}
             />
-            {errors.message && <p className="text-xs text-red-500 font-medium">{errors.message}</p>}
+            {errors.message && <p role="alert" className="text-xs text-red-500 font-medium">{errors.message}</p>}
           </div>
 
           {/* Services Checkboxes */}
@@ -175,27 +173,28 @@ const ContactSection = () => {
             <label className="text-xs font-bold text-slate-300 uppercase tracking-widest block">
               Services
             </label>
-            
+
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {servicesList.map((service) => {
                 const isChecked = selectedServices.includes(service);
                 return (
                   <label
                     key={service}
-                    className="flex items-center gap-3 cursor-pointer select-none text-sm font-medium text-slate-300 hover:text-white"
+                    className="flex items-center gap-3 cursor-pointer select-none text-sm font-medium text-slate-300 hover:text-white transition-colors"
                   >
                     <input
                       type="checkbox"
                       checked={isChecked}
                       onChange={() => handleCheckboxChange(service)}
                       className="hidden"
+                      aria-label={`Select ${service}`}
                     />
-                    {/* Custom Checkbox Box */}
+                    {/* Custom Checkbox */}
                     <div
                       className={`w-5 h-5 rounded flex items-center justify-center border transition-all ${
                         isChecked
                           ? 'bg-primary border-primary text-white shadow-md shadow-primary/20 scale-105'
-                          : 'border-slate-800 bg-[#0a0f1d]'
+                          : 'border-slate-700 bg-[#0a0f1d]'
                       }`}
                     >
                       {isChecked && (
@@ -216,16 +215,97 @@ const ContactSection = () => {
             <Button
               type="submit"
               variant="primary"
-              className="w-full sm:w-auto px-12 py-3.5 rounded-full font-bold tracking-wider text-base shadow-lg shadow-primary/10"
+              className="w-full sm:w-auto px-12 py-3.5 rounded-full font-bold tracking-wider text-base shadow-lg shadow-primary/10 disabled:opacity-60"
               disabled={isSubmitting}
             >
-              {isSubmitting ? 'Sending...' : 'Send'}
+              {isSubmitting ? (
+                <span className="flex items-center gap-2">
+                  <svg className="w-4 h-4 animate-spin" viewBox="0 0 24 24" fill="none">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"/>
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/>
+                  </svg>
+                  Sending...
+                </span>
+              ) : 'Send'}
             </Button>
           </div>
-
         </form>
-
       </div>
+
+      {/* =============================================
+          MODAL OVERLAY — Success / Error state
+          Matches Figma "Success Send" & "Success Failed" screens
+         ============================================= */}
+      {modalState !== 'idle' && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="modal-title"
+          onClick={(e) => { if (e.target === e.currentTarget) closeModal(); }}
+        >
+          <div className="bg-[#0d1117] border border-slate-800 rounded-3xl p-8 sm:p-10 max-w-sm w-full text-center shadow-2xl animate-scale-in">
+
+            {/* Icon */}
+            <div className="flex justify-center mb-6">
+              {modalState === 'success' ? (
+                /* Envelope with green check */
+                <div className="relative">
+                  <svg className="w-20 h-20" viewBox="0 0 80 80" fill="none">
+                    <rect x="5" y="20" width="70" height="48" rx="6" fill="#FF8C42"/>
+                    <path d="M5 28L40 50L75 28" stroke="#FF6B4A" strokeWidth="3"/>
+                    <rect x="5" y="20" width="70" height="48" rx="6" fill="url(#grad1)" opacity="0.4"/>
+                    <defs>
+                      <linearGradient id="grad1" x1="5" y1="20" x2="75" y2="68">
+                        <stop offset="0%" stopColor="#FF8C42"/>
+                        <stop offset="100%" stopColor="#FF6B4A"/>
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                  <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-green-500 flex items-center justify-center shadow-lg">
+                    <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+                      <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                  </div>
+                </div>
+              ) : (
+                /* Envelope with red X */
+                <div className="relative">
+                  <svg className="w-20 h-20" viewBox="0 0 80 80" fill="none">
+                    <rect x="5" y="20" width="70" height="48" rx="6" fill="#FF8C42"/>
+                    <path d="M5 28L40 50L75 28" stroke="#FF6B4A" strokeWidth="3"/>
+                  </svg>
+                  <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-red-500 flex items-center justify-center shadow-lg">
+                    <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+                      <line x1="18" y1="6" x2="6" y2="18"/>
+                      <line x1="6" y1="6" x2="18" y2="18"/>
+                    </svg>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Text */}
+            <h3 id="modal-title" className="text-lg font-extrabold text-white mb-2">
+              {modalState === 'success' ? 'Message Received!' : 'Oops! Something went wrong.'}
+            </h3>
+            <p className="text-sm text-slate-400 leading-relaxed mb-8">
+              {modalState === 'success'
+                ? "Thanks for reaching out — we'll get back to you as soon as possible."
+                : "We couldn't send your message. Please try again or check your connection."}
+            </p>
+
+            {/* CTA Button */}
+            <Button
+              variant="primary"
+              className="w-full rounded-full py-3 font-bold text-base shadow-lg shadow-primary/20"
+              onClick={closeModal}
+            >
+              {modalState === 'success' ? 'Back to Home' : 'Try Again'}
+            </Button>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

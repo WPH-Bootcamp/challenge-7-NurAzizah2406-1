@@ -1,4 +1,3 @@
-import React from 'react';
 import Button from '../ui/Button';
 
 const HeroSection = () => {
@@ -7,72 +6,43 @@ const HeroSection = () => {
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
 
-  // Brand logos inline SVGs for professional crisp rendering
-  const brands = [
-    { name: 'Upwork', svg: (
-      <svg className="h-6 opacity-40 hover:opacity-100 transition-opacity" viewBox="0 0 120 40" fill="currentColor">
-        <text x="5" y="28" fontSize="24" fontWeight="bold" fontFamily="sans-serif">upwork</text>
-      </svg>
-    )},
-    { name: 'Zoom', svg: (
-      <svg className="h-6 opacity-40 hover:opacity-100 transition-opacity" viewBox="0 0 120 40" fill="currentColor">
-        <text x="5" y="28" fontSize="24" fontWeight="bold" fontStyle="italic" fontFamily="sans-serif">zoom</text>
-      </svg>
-    )},
-    { name: 'Postman', svg: (
-      <svg className="h-6 opacity-40 hover:opacity-100 transition-opacity" viewBox="0 0 120 40" fill="currentColor">
-        <text x="5" y="28" fontSize="22" fontWeight="bold" letterSpacing="1" fontFamily="sans-serif">POSTMAN</text>
-      </svg>
-    )},
-    { name: 'Databricks', svg: (
-      <svg className="h-6 opacity-40 hover:opacity-100 transition-opacity" viewBox="0 0 120 40" fill="currentColor">
-        <text x="5" y="28" fontSize="22" fontWeight="bold" fontFamily="sans-serif">databricks</text>
-      </svg>
-    )},
-    { name: 'Airbnb', svg: (
-      <svg className="h-6 opacity-40 hover:opacity-100 transition-opacity" viewBox="0 0 120 40" fill="currentColor">
-        <text x="5" y="28" fontSize="24" fontWeight="bold" fontFamily="sans-serif">airbnb</text>
-      </svg>
-    )},
-    { name: 'Dropbox', svg: (
-      <svg className="h-6 opacity-40 hover:opacity-100 transition-opacity" viewBox="0 0 120 40" fill="currentColor">
-        <text x="5" y="28" fontSize="24" fontWeight="bold" fontFamily="sans-serif">Dropbox</text>
-      </svg>
-    )},
-    { name: 'PayPal', svg: (
-      <svg className="h-6 opacity-40 hover:opacity-100 transition-opacity" viewBox="0 0 120 40" fill="currentColor">
-        <text x="5" y="28" fontSize="24" fontWeight="bold" fontStyle="italic" fontFamily="sans-serif">PayPal</text>
-      </svg>
-    )},
+  // Brand logo names — rendered as styled text to avoid external image deps
+  const brandNames = [
+    { name: 'upwork', style: 'italic' as const },
+    { name: 'zoom', style: 'normal' as const },
+    { name: 'POSTMAN', style: 'normal' as const },
+    { name: 'databricks', style: 'normal' as const },
+    { name: 'airbnb', style: 'normal' as const },
+    { name: 'Dropbox', style: 'normal' as const },
+    { name: 'PayPal', style: 'italic' as const },
   ];
 
   return (
     <section
       id="home"
-      className="relative min-h-screen flex flex-col justify-center bg-secondary pt-32 pb-20 overflow-hidden"
+      className="relative min-h-screen flex flex-col justify-center bg-white pt-28 pb-16 overflow-hidden"
     >
-      {/* Background glowing rings/gradients */}
-      <div className="absolute top-1/4 left-1/10 w-[45vw] h-[45vw] rounded-full bg-primary/5 blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/10 right-1/10 w-[40vw] h-[40vw] rounded-full bg-orange-500/5 blur-[120px] pointer-events-none" />
+      {/* Subtle background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-orange-50/60 via-white to-slate-50 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-10 flex-grow flex flex-col justify-center">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-0 items-center">
+
           {/* Left Text Column */}
-          <div className="lg:col-span-6 text-center lg:text-left space-y-6 sm:space-y-8">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight">
+          <div className="lg:col-span-5 text-left space-y-6">
+            <h1 className="text-4xl sm:text-5xl lg:text-[52px] font-extrabold text-gray-900 leading-tight tracking-tight">
               Your Tech Partner for <br />
-              <span className="text-primary glow-primary">Smarter Growth</span>
+              <span className="text-primary">Smarter Growth</span>
             </h1>
-            
-            <p className="text-base sm:text-lg text-slate-400 leading-relaxed max-w-xl mx-auto lg:mx-0">
+
+            <p className="text-base text-gray-500 leading-relaxed max-w-md">
               We deliver tailored IT solutions to help you scale with speed and confidence.
             </p>
-            
+
             <div className="pt-2">
               <Button
                 variant="primary"
-                className="w-full sm:w-auto rounded-full px-8 py-3.5 text-base font-semibold shadow-lg shadow-primary/20 hover:shadow-primary/30"
+                className="rounded-full px-8 py-3.5 text-base font-semibold shadow-lg shadow-primary/20 hover:shadow-primary/40"
                 onClick={scrollToContact}
               >
                 Let's Talk
@@ -80,89 +50,97 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Right Visual 3D Phone Rendering */}
-          <div className="lg:col-span-6 flex justify-center relative">
-            {/* Main Wrapper */}
-            <div className="relative w-full max-w-md sm:max-w-lg aspect-[4/3] flex items-center justify-center">
-              
-              {/* Outer Glow behind the phone */}
-              <div className="absolute w-[80%] h-[80%] rounded-full bg-gradient-to-tr from-primary/10 to-orange-500/10 blur-[80px] -z-10" />
+          {/* Right: 3D Phone Visual */}
+          <div className="lg:col-span-7 flex justify-center lg:justify-end relative">
+            <div className="relative w-full max-w-lg">
+              <div className="relative">
+                {/* Phone body */}
+                <div className="relative mx-auto w-64 lg:w-72">
+                  {/* Phone frame */}
+                  <div className="relative bg-gradient-to-b from-gray-100 to-white rounded-[40px] p-3 shadow-2xl border border-gray-200">
+                    {/* Screen */}
+                    <div className="bg-gradient-to-br from-orange-100 via-orange-50 to-white rounded-[32px] overflow-hidden aspect-[9/19] relative flex flex-col">
+                      {/* Notch */}
+                      <div className="absolute top-3 left-1/2 -translate-x-1/2 w-24 h-5 bg-white/60 rounded-full z-10" />
 
-              {/* Floating Cloud */}
-              <div className="absolute top-2 right-12 w-20 h-20 text-primary animate-bounce duration-[4000ms] pointer-events-none drop-shadow-[0_0_15px_rgba(255,107,74,0.4)]">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-                  <path d="M18 10C17.4 6 13.9 3 10 3C6.7 3 3.9 5.2 3.1 8.2C1.3 8.9 0 10.7 0 12.8C0 15.7 2.3 18 5.2 18H17.8C21.2 18 24 15.2 24 11.8C24 8.9 21.4 10.2 18 10Z" fill="currentColor" fillOpacity="0.8" />
-                </svg>
-              </div>
+                      {/* Screen content */}
+                      <div className="flex-1 p-4 pt-10 space-y-2">
+                        <div className="bg-gradient-to-r from-primary/80 to-orange-400/80 rounded-2xl p-4 shadow-lg">
+                          <div className="w-2/3 h-2 bg-white/60 rounded mb-2" />
+                          <div className="w-full h-1.5 bg-white/40 rounded mb-1" />
+                          <div className="w-4/5 h-1.5 bg-white/40 rounded" />
+                        </div>
+                        <div className="bg-white/80 rounded-2xl p-3 shadow border border-orange-100">
+                          <div className="w-1/2 h-2 bg-primary/30 rounded mb-2" />
+                          <div className="w-full h-1.5 bg-gray-200 rounded" />
+                        </div>
+                        <div className="bg-white/80 rounded-2xl p-3 shadow border border-orange-100">
+                          <div className="w-2/3 h-2 bg-gray-300 rounded mb-2" />
+                          <div className="w-full h-1.5 bg-gray-200 rounded" />
+                        </div>
+                      </div>
 
-              {/* Floating Code tag */}
-              <div className="absolute top-1/3 right-4 w-12 h-12 text-primary/80 animate-pulse pointer-events-none drop-shadow-[0_0_10px_rgba(255,107,74,0.3)]">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-                  <path d="M8 6L2 12L8 18M16 6L22 12L16 18" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </div>
-
-              {/* Floating Gear */}
-              <div className="absolute bottom-12 left-10 w-16 h-16 text-primary/70 animate-spin duration-[15000ms] pointer-events-none drop-shadow-[0_0_12px_rgba(255,107,74,0.3)]">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-                  <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.15a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.1a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                  <circle cx="12" cy="12" r="3" stroke="currentColor" strokeWidth="2" />
-                </svg>
-              </div>
-
-              {/* 3D Smartphone Canvas Isometric layout */}
-              <div className="relative w-[70%] aspect-[9/16] bg-slate-900 rounded-[36px] p-3.5 shadow-2xl border-4 border-slate-800 transform rotate-x-[20deg] rotate-y-[-20deg] rotate-z-[10deg] hover:rotate-x-[15deg] hover:rotate-y-[-15deg] transition-transform duration-700">
-                {/* Phone screen inner content */}
-                <div className="w-full h-full bg-[#0a0f1d] rounded-[28px] p-4 relative overflow-hidden flex flex-col justify-between border border-slate-800">
-                  {/* Speaker and Camera notch */}
-                  <div className="absolute top-2 left-1/2 -translate-x-1/2 w-20 h-4 bg-slate-950 rounded-full" />
-                  
-                  {/* Top Bar inside mockup */}
-                  <div className="flex justify-between items-center mt-3">
-                    <div className="w-8 h-2.5 bg-slate-800 rounded" />
-                    <div className="w-5 h-2.5 bg-slate-800 rounded" />
-                  </div>
-
-                  {/* Wireframe Cards inside smartphone */}
-                  <div className="flex-grow flex flex-col justify-center space-y-3.5">
-                    <div className="p-3 bg-slate-900/60 rounded-xl border border-slate-800 space-y-2">
-                      <div className="w-1/2 h-3 bg-primary/20 rounded" />
-                      <div className="w-full h-2.5 bg-slate-800 rounded" />
-                      <div className="w-3/4 h-2.5 bg-slate-800 rounded" />
-                    </div>
-
-                    <div className="p-3 bg-slate-900/60 rounded-xl border border-slate-800 space-y-2">
-                      <div className="w-1/3 h-3 bg-slate-800 rounded" />
-                      <div className="w-full h-2.5 bg-slate-800/40 rounded" />
-                    </div>
-
-                    <div className="p-3 bg-slate-900/60 rounded-xl border border-slate-800 space-y-2">
-                      <div className="w-2/3 h-3 bg-slate-800 rounded" />
-                      <div className="w-full h-2.5 bg-slate-800/40 rounded" />
+                      {/* Home bar */}
+                      <div className="flex justify-center pb-2">
+                        <div className="w-16 h-1 bg-gray-400 rounded-full" />
+                      </div>
                     </div>
                   </div>
 
-                  {/* Phone Bottom indicator */}
-                  <div className="w-16 h-1 bg-slate-800 rounded-full mx-auto" />
+                  {/* Phone shadow */}
+                  <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-48 h-8 bg-gray-900/10 rounded-full blur-xl" />
+                </div>
+
+                {/* Floating 3D elements */}
+                {/* Gear icon */}
+                <div className="absolute -bottom-4 -left-8 lg:-left-12 w-20 h-20 lg:w-24 lg:h-24 text-primary drop-shadow-2xl animate-[spin_20s_linear_infinite]">
+                  <svg viewBox="0 0 60 60" fill="currentColor" className="w-full h-full">
+                    <circle cx="30" cy="30" r="12" fill="#FF8C42" opacity="0.9"/>
+                    <circle cx="30" cy="30" r="8" fill="#FF6B4A"/>
+                    <rect x="28" y="0" width="4" height="14" rx="2" fill="#FF8C42"/>
+                    <rect x="28" y="46" width="4" height="14" rx="2" fill="#FF8C42"/>
+                    <rect x="0" y="28" width="14" height="4" rx="2" fill="#FF8C42"/>
+                    <rect x="46" y="28" width="14" height="4" rx="2" fill="#FF8C42"/>
+                  </svg>
+                </div>
+
+                {/* Cloud icon */}
+                <div className="absolute -top-6 right-0 lg:-right-8 w-20 h-16 lg:w-24 lg:h-20 text-primary drop-shadow-xl animate-bounce" style={{ animationDuration: '4s' }}>
+                  <svg viewBox="0 0 80 60" fill="none" className="w-full h-full">
+                    <ellipse cx="30" cy="38" rx="22" ry="14" fill="#FF8C42" opacity="0.9"/>
+                    <ellipse cx="20" cy="34" rx="14" ry="10" fill="#FF8C42" opacity="0.9"/>
+                    <ellipse cx="50" cy="32" rx="18" ry="12" fill="#FF8C42" opacity="0.95"/>
+                    <ellipse cx="40" cy="28" rx="20" ry="14" fill="#FF6B4A"/>
+                  </svg>
+                </div>
+
+                {/* Code bracket */}
+                <div className="absolute top-1/3 -right-4 lg:-right-8 w-14 h-14 lg:w-16 lg:h-16 text-primary drop-shadow-xl animate-pulse">
+                  <svg viewBox="0 0 60 60" fill="none" className="w-full h-full">
+                    <path d="M20 12L8 30L20 48" stroke="#FF6B4A" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+                    <path d="M40 12L52 30L40 48" stroke="#FF8C42" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+                  </svg>
                 </div>
               </div>
-
             </div>
           </div>
-
         </div>
 
-        {/* Muted Grayscale Brands logos bar */}
-        <div className="mt-24 pt-8 border-t border-slate-900/80">
+        {/* Brand logos bar */}
+        <div className="mt-20 pt-8 border-t border-gray-100">
           <div className="text-center space-y-6">
-            <p className="text-xs font-bold text-slate-500 uppercase tracking-widest">
+            <p className="text-xs font-bold text-gray-400 uppercase tracking-widest">
               Trusted by Global Innovators & Leading Brands
             </p>
-            <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6 text-slate-500">
-              {brands.map((brand) => (
-                <div key={brand.name} className="flex items-center">
-                  {brand.svg}
-                </div>
+            <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
+              {brandNames.map((brand) => (
+                <span
+                  key={brand.name}
+                  className="text-gray-400 font-bold text-lg tracking-wide opacity-50 hover:opacity-90 transition-opacity select-none"
+                  style={{ fontStyle: brand.style }}
+                >
+                  {brand.name}
+                </span>
               ))}
             </div>
           </div>
