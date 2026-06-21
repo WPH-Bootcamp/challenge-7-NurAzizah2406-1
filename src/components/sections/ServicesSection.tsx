@@ -1,7 +1,7 @@
 import React from 'react';
 import { services } from '../../data/services';
 import Card from '../ui/Card';
-import { Monitor, Smartphone, Server, Check } from '../ui/Icons';
+import { Monitor } from '../ui/Icons';
 
 const ServicesSection = () => {
   // Custom theme SVGs corresponding to the 9 services of the Figma design
