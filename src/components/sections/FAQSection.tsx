@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Button from '../ui/Button';
 
 interface FAQItem {
   question: string;
@@ -6,24 +7,28 @@ interface FAQItem {
 }
 
 const FAQSection = () => {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [openIndex, setOpenIndex] = useState<number | null>(0); // First item expanded by default
 
   const faqs: FAQItem[] = [
     {
       question: 'What services do you offer?',
-      answer: 'We provide comprehensive IT services including Web Development, Mobile App Development, UI/UX Design, Cloud Solutions, Custom Software Engineering, IT Infrastructure scaling, Cybersecurity, QA Testing, and Technical Consulting.',
+      answer: 'We provide custom web/app development, cloud solutions, UX/UI design, and more.',
     },
     {
-      question: 'How long does a standard web project take?',
-      answer: 'A standard web design and development cycle typically takes between 4 to 8 weeks. This includes discovery, design wireframes, frontend/backend engineering, QA testing, and deployment.',
+      question: 'How do I know if this is right for my business?',
+      answer: 'Our consultation process analyzes your business bottlenecks and maps out custom technology solutions that align with your scalability targets.',
     },
     {
-      question: 'Do you provide post-launch support?',
-      answer: 'Yes, we offer structured maintenance and support SLA agreements after deployment. This includes uptime monitoring, security patching, and bug fixes to ensure your software runs smoothly.',
+      question: 'How much does a project cost?',
+      answer: 'Costs vary based on complexity, features, and timeline requirements. We provide a transparent scope-of-work breakdown before starting.',
     },
     {
-      question: 'Is your code type-safe and fully documented?',
-      answer: 'Absolutely. We follow strict TypeScript type safety standards and modular component architectures. This ensures readability, ease of hand-off, and seamless future scalability.',
+      question: 'How long does it take?',
+      answer: 'Standard projects take between 4 to 8 weeks. We deliver incrementally with continuous staging updates.',
+    },
+    {
+      question: 'Can I start with a small project first?',
+      answer: 'Yes! We support starting with a Minimum Viable Product (MVP) or initial consulting scope to establish alignment and trust.',
     },
   ];
 
@@ -33,56 +38,87 @@ const FAQSection = () => {
 
   return (
     <section id="faq" className="py-24 bg-secondary text-white relative">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
-            Frequently Asked Questions
-          </h2>
-          <p className="text-slate-400 text-sm">
-            Find answers to common questions about our services, process, and workspace standards.
-          </p>
-        </div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          
+          {/* Left Column: FAQ Accordion */}
+          <div className="lg:col-span-7 space-y-8">
+            <div className="space-y-4">
+              <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
+                Need Help? Start Here.
+              </h2>
+              <p className="text-slate-400 text-sm">
+                Everything you need to know — all in one place.
+              </p>
+            </div>
 
-        {/* FAQ Accordion list */}
-        <div className="space-y-4">
-          {faqs.map((faq, idx) => {
-            const isOpen = openIndex === idx;
-            return (
-              <div
-                key={idx}
-                className="bg-[#0a0f1d] border border-slate-800/80 rounded-2xl overflow-hidden transition-all duration-300"
-              >
-                {/* Header click bar */}
-                <button
-                  onClick={() => toggleFAQ(idx)}
-                  className="w-full px-6 py-5 flex items-center justify-between text-left font-bold text-sm sm:text-base text-white hover:text-primary transition-colors cursor-pointer select-none"
-                >
-                  <span>{faq.question}</span>
-                  {/* Chevron Toggle Icon */}
-                  <span className={`transform transition-transform duration-300 text-primary font-bold ${
-                    isOpen ? 'rotate-180' : ''
-                  }`}>
-                    ▼
-                  </span>
-                </button>
+            <div className="border-t border-slate-800/80 divide-y divide-slate-800/80">
+              {faqs.map((faq, idx) => {
+                const isOpen = openIndex === idx;
+                return (
+                  <div key={idx} className="py-5">
+                    <button
+                      onClick={() => toggleFAQ(idx)}
+                      className="w-full flex items-center justify-between text-left font-bold text-sm sm:text-base text-white hover:text-primary transition-colors cursor-pointer select-none"
+                    >
+                      <span>{faq.question}</span>
+                      <span className="text-lg font-bold text-primary w-6 h-6 flex items-center justify-center select-none">
+                        {isOpen ? '−' : '+'}
+                      </span>
+                    </button>
 
-                {/* Answer box with height slide */}
-                <div
-                  className={`transition-all duration-300 ease-in-out overflow-hidden ${
-                    isOpen ? 'max-h-40 border-t border-slate-850 opacity-100' : 'max-h-0 opacity-0'
-                  }`}
-                >
-                  <p className="px-6 py-5 text-xs sm:text-sm text-slate-450 leading-relaxed bg-[#0c1325]/30">
-                    {faq.answer}
-                  </p>
-                </div>
+                    <div
+                      className={`transition-all duration-300 ease-in-out overflow-hidden ${
+                        isOpen ? 'max-h-24 opacity-100 mt-3' : 'max-h-0 opacity-0'
+                      }`}
+                    >
+                      <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                        {faq.answer}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Right Column: Let's talk it through CTA Card */}
+          <div className="lg:col-span-5 w-full flex justify-center">
+            <div className="w-full max-w-sm bg-gradient-to-br from-[#e0583b] to-[#c83e23] rounded-3xl p-8 space-y-6 shadow-2xl relative overflow-hidden flex flex-col justify-between">
+              
+              <div className="space-y-2">
+                <h3 className="text-2xl font-bold tracking-tight text-white leading-tight">
+                  Let’s talk it through
+                </h3>
+                <p className="text-white/80 text-xs sm:text-sm font-medium">
+                  book a free consultation with our team.
+                </p>
               </div>
-            );
-          })}
-        </div>
 
+              {/* Consultation Team Image */}
+              <div className="aspect-[16/10] w-full rounded-2xl overflow-hidden bg-slate-900 shadow-lg border border-white/10">
+                <img
+                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80"
+                  alt="Team discussion"
+                  className="w-full h-full object-cover opacity-90"
+                />
+              </div>
+
+              <div className="pt-2">
+                <Button
+                  className="w-full bg-white hover:bg-slate-50 text-slate-900 border-none rounded-2xl py-3.5 font-bold tracking-wide transition-all shadow-xl"
+                  onClick={() => {
+                    const el = document.getElementById('contact');
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                >
+                  Free Consultation
+                </Button>
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
     </section>
   );
