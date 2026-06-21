@@ -20,22 +20,22 @@ const HeroSection = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex flex-col justify-center bg-white pt-28 pb-16 overflow-hidden"
+      className="relative min-h-screen flex flex-col justify-center bg-white dark:bg-[#030712] pt-28 pb-16 overflow-hidden"
     >
       {/* Subtle background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-orange-50/60 via-white to-slate-50 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-br from-orange-50/60 via-white to-slate-50 dark:from-orange-950/20 dark:via-[#030712] dark:to-slate-950 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-10 flex-grow flex flex-col justify-center">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-0 items-center">
 
           {/* Left Text Column */}
           <div className="lg:col-span-5 text-left space-y-6">
-            <h1 className="text-4xl sm:text-5xl lg:text-[52px] font-extrabold text-gray-900 leading-tight tracking-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-[52px] font-extrabold text-gray-900 dark:text-white leading-tight tracking-tight">
               Your Tech Partner for <br />
               <span className="text-primary">Smarter Growth</span>
             </h1>
 
-            <p className="text-base text-gray-500 leading-relaxed max-w-md">
+            <p className="text-base text-gray-500 dark:text-slate-400 leading-relaxed max-w-md">
               We deliver tailored IT solutions to help you scale with speed and confidence.
             </p>
 
@@ -127,16 +127,16 @@ const HeroSection = () => {
         </div>
 
         {/* Brand logos bar */}
-        <div className="mt-20 pt-8 border-t border-gray-100">
+        <div className="mt-20 pt-8 border-t border-gray-100 dark:border-slate-800/80">
           <div className="text-center space-y-6">
-            <p className="text-xs font-bold text-gray-400 uppercase tracking-widest">
+            <p className="text-xs font-bold text-gray-400 dark:text-slate-500 uppercase tracking-widest">
               Trusted by Global Innovators & Leading Brands
             </p>
             <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
               {brandNames.map((brand) => (
                 <span
                   key={brand.name}
-                  className="text-gray-400 font-bold text-lg tracking-wide opacity-50 hover:opacity-90 transition-opacity select-none"
+                  className="text-gray-400 dark:text-slate-500 font-bold text-lg tracking-wide opacity-50 hover:opacity-90 transition-opacity select-none"
                   style={{ fontStyle: brand.style }}
                 >
                   {brand.name}
