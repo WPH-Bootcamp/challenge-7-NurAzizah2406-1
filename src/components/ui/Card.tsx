@@ -7,9 +7,9 @@ const Card = ({ children, className = '', onClick }: CardProps) => {
   return (
     <div
       onClick={onClick}
-      className={`bg-white rounded-xl border border-slate-100 p-6 shadow-sm transition-all duration-300 ${
+      className={`bg-card rounded-2xl border border-slate-800/60 p-6 shadow-xl shadow-black/10 transition-all duration-300 ${
         isClickable
-          ? 'cursor-pointer hover:shadow-md hover:-translate-y-1 hover:border-slate-200'
+          ? 'cursor-pointer hover:shadow-2xl hover:shadow-primary/5 hover:-translate-y-1 hover:border-slate-700/80'
           : ''
       } ${className}`}
     >

@@ -15,18 +15,23 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-slate-900 text-slate-400 border-t border-slate-800 pt-16 pb-8">
+    <footer className="bg-secondary text-slate-400 border-t border-slate-900/60 pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8 pb-12 border-b border-slate-800">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8 pb-12 border-b border-slate-900">
           
           {/* Logo & Intro */}
           <div className="md:col-span-5 space-y-5">
-            <a href="#home" className="text-2xl font-bold text-white tracking-tight">
-              {companyInfo.name}
-              <span className="text-primary">.</span>
+            <a href="#home" className="flex items-center gap-2.5 text-xl font-bold text-white tracking-tight">
+              <div className="relative w-6 h-6 flex items-center justify-center">
+                <svg className="w-full h-full text-primary" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 2L4 10L12 18L20 10L12 2Z" fill="currentColor" fillOpacity="0.8" />
+                  <path d="M12 8L7 13L12 18L17 13L12 8Z" fill="#ff8164" />
+                </svg>
+              </div>
+              <span>Your Logo</span>
             </a>
             <p className="text-sm text-slate-400 leading-relaxed max-w-sm">
-              {companyInfo.tagline}. {companyInfo.description.split('. ')[0]}.
+              Your Tech Partner for Smarter Growth. We deliver tailored IT solutions to help you scale with speed and confidence.
             </p>
             {/* Social Buttons */}
             <div className="flex space-x-3">
@@ -39,7 +44,7 @@ const Footer = () => {
                     href={url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2 rounded-lg bg-slate-800 text-slate-400 hover:bg-primary hover:text-white transition-all duration-300"
+                    className="p-2.5 rounded-lg bg-slate-900 text-slate-400 hover:bg-primary hover:text-white transition-all duration-300 border border-slate-800"
                     aria-label={`Visit our ${key}`}
                   >
                     {icon}
@@ -97,9 +102,9 @@ const Footer = () => {
 
         {/* Copyright and signature */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
-          <p>© {currentYear} {companyInfo.name}. All rights reserved.</p>
+          <p>© {currentYear} Your Logo. All rights reserved.</p>
           <p className="text-slate-500">
-            Crafted for Excellence using React, TypeScript & TailwindCSS.
+            Designed to match Figma specifications using React, TypeScript & TailwindCSS v4.
           </p>
         </div>
       </div>
