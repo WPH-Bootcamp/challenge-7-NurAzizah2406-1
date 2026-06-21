@@ -17,9 +17,9 @@ const TestimonialsSection = () => {
   const current = testimonials[activeIndex];
 
   return (
-    <section id="testimonials" className="py-20 bg-white relative overflow-hidden">
+    <section id="testimonials" className="py-24 bg-secondary relative overflow-hidden text-white">
       {/* Background glowing decorations */}
-      <div className="absolute top-1/2 right-0 -translate-y-1/2 w-96 h-96 rounded-full bg-primary/5 blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/2 right-0 -translate-y-1/2 w-96 h-96 rounded-full bg-primary/3 blur-[100px] pointer-events-none" />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-10">
         
@@ -28,25 +28,25 @@ const TestimonialsSection = () => {
           <span className="text-xs font-bold uppercase tracking-wider text-primary">
             Client Success
           </span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-secondary">
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
             Ulasan dari Mitra Kami
           </h2>
-          <p className="text-slate-600 text-sm max-w-lg mx-auto">
+          <p className="text-slate-400 text-sm max-w-lg mx-auto">
             Feedback and reviews from corporate leaders who scaled their digital platforms using our workflow.
           </p>
         </div>
 
         {/* Carousel Card */}
         <div className="relative min-h-[340px] flex items-center justify-center">
-          <Card className="w-full bg-slate-50 border-slate-100 p-8 sm:p-12 shadow-lg shadow-slate-100/50 rounded-2xl flex flex-col items-center justify-between text-center max-w-3xl">
+          <Card className="w-full bg-[#0a0f1d] border-slate-800/80 p-8 sm:p-12 shadow-2xl shadow-black/25 rounded-3xl flex flex-col items-center justify-between text-center max-w-3xl">
             
             {/* Quote icon SVG decorator */}
-            <div className="text-primary/25 text-5xl font-serif leading-none h-4 select-none mb-6">
+            <div className="text-primary/20 text-6xl font-serif leading-none h-4 select-none mb-6">
               “
             </div>
 
             {/* Message block */}
-            <p className="text-base sm:text-lg text-slate-700 italic leading-relaxed max-w-xl font-medium">
+            <p className="text-base sm:text-lg text-slate-200 italic leading-relaxed max-w-xl font-medium">
               {current.message}
             </p>
 
@@ -57,7 +57,7 @@ const TestimonialsSection = () => {
                   <Star
                     key={i}
                     size={16}
-                    className={i < current.rating ? 'text-accent fill-accent' : 'text-slate-200'}
+                    className={i < current.rating ? 'text-accent fill-accent' : 'text-slate-700'}
                   />
                 ))}
               </div>
@@ -68,11 +68,11 @@ const TestimonialsSection = () => {
                   src={current.avatar}
                   alt={current.name}
                   loading="lazy"
-                  className="w-12 h-12 rounded-full object-cover border-2 border-primary/20 shadow-sm"
+                  className="w-12 h-12 rounded-full object-cover border-2 border-primary/25 shadow-sm"
                 />
                 <div>
-                  <h4 className="text-sm font-extrabold text-secondary">{current.name}</h4>
-                  <p className="text-xs text-slate-500 font-medium">
+                  <h4 className="text-sm font-extrabold text-white">{current.name}</h4>
+                  <p className="text-xs text-slate-400 font-medium">
                     {current.position}, <span className="text-primary">{current.company}</span>
                   </p>
                 </div>
@@ -86,7 +86,7 @@ const TestimonialsSection = () => {
         <div className="flex items-center justify-center gap-6 mt-4">
           <button
             onClick={prevTestimonial}
-            className="p-3 rounded-full border border-slate-200 bg-white hover:bg-slate-50 text-slate-600 hover:text-primary transition-all shadow-sm active:scale-95 cursor-pointer"
+            className="p-3.5 rounded-full border border-slate-800 bg-[#0a0f1d] hover:bg-slate-900 text-slate-300 hover:text-white transition-all shadow-md active:scale-95 cursor-pointer"
             aria-label="Previous testimonial"
           >
             ←
@@ -99,7 +99,7 @@ const TestimonialsSection = () => {
                 key={index}
                 onClick={() => setActiveIndex(index)}
                 className={`h-2.5 rounded-full transition-all duration-300 ${
-                  index === activeIndex ? 'w-6 bg-primary' : 'w-2.5 bg-slate-200'
+                  index === activeIndex ? 'w-6 bg-primary' : 'w-2.5 bg-slate-800'
                 }`}
                 aria-label={`Go to slide ${index + 1}`}
               />
@@ -108,7 +108,7 @@ const TestimonialsSection = () => {
 
           <button
             onClick={nextTestimonial}
-            className="p-3 rounded-full border border-slate-200 bg-white hover:bg-slate-50 text-slate-600 hover:text-primary transition-all shadow-sm active:scale-95 cursor-pointer"
+            className="p-3.5 rounded-full border border-slate-800 bg-[#0a0f1d] hover:bg-slate-900 text-slate-300 hover:text-white transition-all shadow-md active:scale-95 cursor-pointer"
             aria-label="Next testimonial"
           >
             →

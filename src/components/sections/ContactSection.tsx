@@ -75,37 +75,34 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-slate-50 relative">
+    <section id="contact" className="py-24 bg-[#020617] text-white relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header Section */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <span className="text-xs font-bold uppercase tracking-wider text-primary">
-            Connect With Us
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-secondary">
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
             Get in Touch
           </h2>
-          <p className="text-slate-600 text-sm">
+          <p className="text-slate-400 text-sm leading-relaxed">
             Have a project in mind or need technical consultation? Reach out and we will respond within 24 hours.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 bg-white rounded-3xl border border-slate-100 shadow-xl overflow-hidden">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 bg-[#0a0f1d] rounded-3xl border border-slate-800/80 shadow-2xl overflow-hidden max-w-5xl mx-auto">
           
           {/* Contact Details Column */}
-          <div className="lg:col-span-5 bg-slate-900 text-white p-8 sm:p-12 flex flex-col justify-between space-y-10 relative">
+          <div className="lg:col-span-5 bg-slate-950 p-8 sm:p-12 flex flex-col justify-between space-y-10 relative border-r border-slate-900">
             {/* Background Glow */}
-            <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-2xl" />
+            <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-2xl pointer-events-none" />
             
             <div className="space-y-6">
-              <h3 className="text-2xl font-bold tracking-tight">Contact Information</h3>
-              <p className="text-slate-400 text-sm leading-relaxed">
-                Fill out the form and our developer relations team will get back to you shortly.
+              <h3 className="text-xl font-bold tracking-tight text-white">Contact Information</h3>
+              <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">
+                Fill out the form and our team will get back to you shortly.
               </p>
             </div>
 
-            <ul className="space-y-6 text-sm">
+            <ul className="space-y-6 text-xs sm:text-sm">
               <li className="flex items-start gap-4">
                 <MapPin className="text-primary mt-1 shrink-0" size={20} />
                 <span className="text-slate-300">{companyInfo.address}</span>
@@ -124,18 +121,17 @@ const ContactSection = () => {
               </li>
             </ul>
 
-            {/* Quick reminder badge */}
-            <div className="p-4 rounded-xl bg-slate-800/50 border border-slate-800 text-xs text-slate-400">
+            <div className="p-4 rounded-xl bg-slate-900 border border-slate-850 text-[11px] text-slate-450 leading-relaxed">
               ⚡ <strong>Office Hours:</strong> Mon - Fri, 9:00 AM - 6:00 PM (GMT+7)
             </div>
           </div>
 
           {/* Form Input Column */}
           <div className="lg:col-span-7 p-8 sm:p-12 space-y-6">
-            <h3 className="text-xl font-bold text-secondary">Send Us a Message</h3>
+            <h3 className="text-lg font-bold text-white">Send Us a Message</h3>
             
             {successMessage && (
-              <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-100 text-emerald-800 text-xs font-semibold flex items-center gap-2 animate-fade-in">
+              <div className="p-4 rounded-xl bg-emerald-950/80 border border-emerald-800 text-emerald-300 text-xs font-semibold flex items-center gap-2">
                 <span>✔</span> Pesan Anda berhasil dikirim! Kami akan segera menghubungi Anda.
               </div>
             )}
@@ -144,7 +140,7 @@ const ContactSection = () => {
               
               {/* Name Field */}
               <div className="space-y-1.5">
-                <label htmlFor="name" className="text-xs font-bold text-slate-700 uppercase tracking-wider">
+                <label htmlFor="name" className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
                   Full Name
                 </label>
                 <input
@@ -154,8 +150,8 @@ const ContactSection = () => {
                   value={formData.name}
                   onChange={handleInputChange}
                   placeholder="John Doe"
-                  className={`w-full px-4 py-3 rounded-xl border text-sm transition-all focus:outline-none focus:ring-2 focus:ring-primary/20 ${
-                    errors.name ? 'border-red-500 bg-red-50/20' : 'border-slate-200 focus:border-primary'
+                  className={`w-full px-4 py-3 rounded-xl border text-sm transition-all focus:outline-none focus:ring-2 focus:ring-primary/20 bg-slate-900 text-white ${
+                    errors.name ? 'border-red-500 bg-red-950/20' : 'border-slate-850 focus:border-primary'
                   }`}
                 />
                 {errors.name && <p className="text-xs text-red-500 font-medium">{errors.name}</p>}
@@ -163,7 +159,7 @@ const ContactSection = () => {
 
               {/* Email Field */}
               <div className="space-y-1.5">
-                <label htmlFor="email" className="text-xs font-bold text-slate-700 uppercase tracking-wider">
+                <label htmlFor="email" className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
                   Email Address
                 </label>
                 <input
@@ -173,8 +169,8 @@ const ContactSection = () => {
                   value={formData.email}
                   onChange={handleInputChange}
                   placeholder="johndoe@example.com"
-                  className={`w-full px-4 py-3 rounded-xl border text-sm transition-all focus:outline-none focus:ring-2 focus:ring-primary/20 ${
-                    errors.email ? 'border-red-500 bg-red-50/20' : 'border-slate-200 focus:border-primary'
+                  className={`w-full px-4 py-3 rounded-xl border text-sm transition-all focus:outline-none focus:ring-2 focus:ring-primary/20 bg-slate-900 text-white ${
+                    errors.email ? 'border-red-500 bg-red-950/20' : 'border-slate-850 focus:border-primary'
                   }`}
                 />
                 {errors.email && <p className="text-xs text-red-500 font-medium">{errors.email}</p>}
@@ -182,7 +178,7 @@ const ContactSection = () => {
 
               {/* Message Field */}
               <div className="space-y-1.5">
-                <label htmlFor="message" className="text-xs font-bold text-slate-700 uppercase tracking-wider">
+                <label htmlFor="message" className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
                   Message
                 </label>
                 <textarea
@@ -192,8 +188,8 @@ const ContactSection = () => {
                   onChange={handleInputChange}
                   rows={4}
                   placeholder="Tell us about your project requirements..."
-                  className={`w-full px-4 py-3 rounded-xl border text-sm transition-all focus:outline-none focus:ring-2 focus:ring-primary/20 ${
-                    errors.message ? 'border-red-500 bg-red-50/20' : 'border-slate-200 focus:border-primary'
+                  className={`w-full px-4 py-3 rounded-xl border text-sm transition-all focus:outline-none focus:ring-2 focus:ring-primary/20 bg-slate-900 text-white ${
+                    errors.message ? 'border-red-500 bg-red-950/20' : 'border-slate-850 focus:border-primary'
                   }`}
                 />
                 {errors.message && <p className="text-xs text-red-500 font-medium">{errors.message}</p>}
@@ -203,7 +199,7 @@ const ContactSection = () => {
               <Button
                 type="submit"
                 variant="primary"
-                className="w-full py-3.5 justify-center font-semibold tracking-wide"
+                className="w-full py-3.5 justify-center font-semibold rounded-full tracking-wide shadow-lg shadow-primary/10"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? 'Sending message...' : 'Send Message'}

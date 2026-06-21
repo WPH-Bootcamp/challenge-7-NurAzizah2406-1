@@ -1,121 +1,173 @@
 import React from 'react';
-import { companyInfo } from '../../data/company';
 import Button from '../ui/Button';
-import { ArrowRight } from '../ui/Icons';
 
 const HeroSection = () => {
-  const scrollToSection = (id: string) => {
-    const el = document.getElementById(id);
+  const scrollToContact = () => {
+    const el = document.getElementById('contact');
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
+
+  // Brand logos inline SVGs for professional crisp rendering
+  const brands = [
+    { name: 'Upwork', svg: (
+      <svg className="h-6 opacity-40 hover:opacity-100 transition-opacity" viewBox="0 0 120 40" fill="currentColor">
+        <text x="5" y="28" fontSize="24" fontWeight="bold" fontFamily="sans-serif">upwork</text>
+      </svg>
+    )},
+    { name: 'Zoom', svg: (
+      <svg className="h-6 opacity-40 hover:opacity-100 transition-opacity" viewBox="0 0 120 40" fill="currentColor">
+        <text x="5" y="28" fontSize="24" fontWeight="bold" fontStyle="italic" fontFamily="sans-serif">zoom</text>
+      </svg>
+    )},
+    { name: 'Postman', svg: (
+      <svg className="h-6 opacity-40 hover:opacity-100 transition-opacity" viewBox="0 0 120 40" fill="currentColor">
+        <text x="5" y="28" fontSize="22" fontWeight="bold" letterSpacing="1" fontFamily="sans-serif">POSTMAN</text>
+      </svg>
+    )},
+    { name: 'Databricks', svg: (
+      <svg className="h-6 opacity-40 hover:opacity-100 transition-opacity" viewBox="0 0 120 40" fill="currentColor">
+        <text x="5" y="28" fontSize="22" fontWeight="bold" fontFamily="sans-serif">databricks</text>
+      </svg>
+    )},
+    { name: 'Airbnb', svg: (
+      <svg className="h-6 opacity-40 hover:opacity-100 transition-opacity" viewBox="0 0 120 40" fill="currentColor">
+        <text x="5" y="28" fontSize="24" fontWeight="bold" fontFamily="sans-serif">airbnb</text>
+      </svg>
+    )},
+    { name: 'Dropbox', svg: (
+      <svg className="h-6 opacity-40 hover:opacity-100 transition-opacity" viewBox="0 0 120 40" fill="currentColor">
+        <text x="5" y="28" fontSize="24" fontWeight="bold" fontFamily="sans-serif">Dropbox</text>
+      </svg>
+    )},
+    { name: 'PayPal', svg: (
+      <svg className="h-6 opacity-40 hover:opacity-100 transition-opacity" viewBox="0 0 120 40" fill="currentColor">
+        <text x="5" y="28" fontSize="24" fontWeight="bold" fontStyle="italic" fontFamily="sans-serif">PayPal</text>
+      </svg>
+    )},
+  ];
 
   return (
     <section
       id="home"
-      className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-slate-50 pt-20 pb-16"
+      className="relative min-h-screen flex flex-col justify-center bg-secondary pt-32 pb-20 overflow-hidden"
     >
-      {/* Background radial glowing gradients */}
-      <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] rounded-full bg-primary/10 blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-blue-500/10 blur-[120px] pointer-events-none" />
+      {/* Background glowing rings/gradients */}
+      <div className="absolute top-1/4 left-1/10 w-[45vw] h-[45vw] rounded-full bg-primary/5 blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/10 right-1/10 w-[40vw] h-[40vw] rounded-full bg-orange-500/5 blur-[120px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-10 flex-grow flex flex-col justify-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
-          {/* Text Content */}
-          <div className="lg:col-span-6 text-center lg:text-left space-y-6 md:space-y-8">
-            {/* Tagline Pill */}
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-light text-primary text-xs font-semibold tracking-wide uppercase">
-              ✨ Leading the Digital Frontier
-            </div>
-            
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-secondary leading-tight tracking-tight">
-              Crafting Next-Gen <br className="hidden sm:inline" />
-              <span className="bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
-                Digital Experiences
-              </span>
+          {/* Left Text Column */}
+          <div className="lg:col-span-6 text-center lg:text-left space-y-6 sm:space-y-8">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight">
+              Your Tech Partner for <br />
+              <span className="text-primary glow-primary">Smarter Growth</span>
             </h1>
             
-            <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-xl mx-auto lg:mx-0">
-              {companyInfo.description}
+            <p className="text-base sm:text-lg text-slate-400 leading-relaxed max-w-xl mx-auto lg:mx-0">
+              We deliver tailored IT solutions to help you scale with speed and confidence.
             </p>
             
-            {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+            <div className="pt-2">
               <Button
                 variant="primary"
-                className="w-full sm:w-auto group gap-2"
-                onClick={() => scrollToSection('services')}
+                className="w-full sm:w-auto rounded-full px-8 py-3.5 text-base font-semibold shadow-lg shadow-primary/20 hover:shadow-primary/30"
+                onClick={scrollToContact}
               >
-                Explore Our Services
-                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-              </Button>
-              <Button
-                variant="outline"
-                className="w-full sm:w-auto"
-                onClick={() => scrollToSection('about')}
-              >
-                Learn More About Us
+                Let's Talk
               </Button>
             </div>
           </div>
 
-          {/* Interactive CSS Illustration / Graphic */}
-          <div className="lg:col-span-6 relative w-full max-w-md md:max-w-lg mx-auto lg:max-w-none flex justify-center">
-            <div className="relative w-full aspect-[4/3] max-w-lg bg-slate-900/5 rounded-2xl p-2 shadow-2xl shadow-slate-200 border border-slate-200/50 backdrop-blur-sm overflow-hidden flex items-center justify-center">
-              {/* Decorative elements representing code and layouts */}
-              <div className="absolute top-4 left-4 flex gap-1.5">
-                <div className="w-3 h-3 rounded-full bg-red-400" />
-                <div className="w-3 h-3 rounded-full bg-yellow-400" />
-                <div className="w-3 h-3 rounded-full bg-green-400" />
-              </div>
+          {/* Right Visual 3D Phone Rendering */}
+          <div className="lg:col-span-6 flex justify-center relative">
+            {/* Main Wrapper */}
+            <div className="relative w-full max-w-md sm:max-w-lg aspect-[4/3] flex items-center justify-center">
               
-              {/* CSS Tech Graphics representing dashboard/wireframe */}
-              <div className="w-[85%] h-[75%] bg-white rounded-xl shadow-lg border border-slate-100 p-4 space-y-4 relative overflow-hidden">
-                {/* Dashboard top header */}
-                <div className="flex justify-between items-center border-b border-slate-100 pb-3">
-                  <div className="h-4 w-28 bg-slate-100 rounded-md" />
-                  <div className="h-6 w-6 rounded-full bg-primary/20" />
-                </div>
+              {/* Outer Glow behind the phone */}
+              <div className="absolute w-[80%] h-[80%] rounded-full bg-gradient-to-tr from-primary/10 to-orange-500/10 blur-[80px] -z-10" />
 
-                {/* Dashboard grid layout */}
-                <div className="grid grid-cols-3 gap-3">
-                  <div className="col-span-2 h-24 bg-gradient-to-br from-primary/10 to-blue-500/5 rounded-lg p-3 space-y-2 flex flex-col justify-between">
-                    <div className="h-3 w-16 bg-primary/25 rounded-md" />
-                    <div className="h-6 w-24 bg-primary/40 rounded-md" />
-                  </div>
-                  <div className="h-24 bg-slate-50 border border-slate-100 rounded-lg p-2 space-y-2 flex flex-col justify-between">
-                    <div className="h-3 w-10 bg-slate-200 rounded-md" />
-                    <div className="h-4 w-12 bg-slate-300 rounded-md" />
-                  </div>
-                </div>
+              {/* Floating Cloud */}
+              <div className="absolute top-2 right-12 w-20 h-20 text-primary animate-bounce duration-[4000ms] pointer-events-none drop-shadow-[0_0_15px_rgba(255,107,74,0.4)]">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+                  <path d="M18 10C17.4 6 13.9 3 10 3C6.7 3 3.9 5.2 3.1 8.2C1.3 8.9 0 10.7 0 12.8C0 15.7 2.3 18 5.2 18H17.8C21.2 18 24 15.2 24 11.8C24 8.9 21.4 10.2 18 10Z" fill="currentColor" fillOpacity="0.8" />
+                </svg>
+              </div>
 
-                {/* Floating details cards */}
-                <div className="space-y-2">
-                  <div className="h-3 w-32 bg-slate-100 rounded-md" />
-                  <div className="flex items-center justify-between p-2 bg-slate-50 border border-slate-100 rounded-lg">
-                    <div className="flex items-center gap-2">
-                      <div className="w-6 h-6 rounded bg-emerald-500/20 text-emerald-600 flex items-center justify-center font-bold text-xs">✔</div>
-                      <div className="h-3 w-20 bg-slate-200 rounded-md" />
+              {/* Floating Code tag */}
+              <div className="absolute top-1/3 right-4 w-12 h-12 text-primary/80 animate-pulse pointer-events-none drop-shadow-[0_0_10px_rgba(255,107,74,0.3)]">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+                  <path d="M8 6L2 12L8 18M16 6L22 12L16 18" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </div>
+
+              {/* Floating Gear */}
+              <div className="absolute bottom-12 left-10 w-16 h-16 text-primary/70 animate-spin duration-[15000ms] pointer-events-none drop-shadow-[0_0_12px_rgba(255,107,74,0.3)]">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+                  <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.15a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.1a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                  <circle cx="12" cy="12" r="3" stroke="currentColor" strokeWidth="2" />
+                </svg>
+              </div>
+
+              {/* 3D Smartphone Canvas Isometric layout */}
+              <div className="relative w-[70%] aspect-[9/16] bg-slate-900 rounded-[36px] p-3.5 shadow-2xl border-4 border-slate-800 transform rotate-x-[20deg] rotate-y-[-20deg] rotate-z-[10deg] hover:rotate-x-[15deg] hover:rotate-y-[-15deg] transition-transform duration-700">
+                {/* Phone screen inner content */}
+                <div className="w-full h-full bg-[#0a0f1d] rounded-[28px] p-4 relative overflow-hidden flex flex-col justify-between border border-slate-800">
+                  {/* Speaker and Camera notch */}
+                  <div className="absolute top-2 left-1/2 -translate-x-1/2 w-20 h-4 bg-slate-950 rounded-full" />
+                  
+                  {/* Top Bar inside mockup */}
+                  <div className="flex justify-between items-center mt-3">
+                    <div className="w-8 h-2.5 bg-slate-800 rounded" />
+                    <div className="w-5 h-2.5 bg-slate-800 rounded" />
+                  </div>
+
+                  {/* Wireframe Cards inside smartphone */}
+                  <div className="flex-grow flex flex-col justify-center space-y-3.5">
+                    <div className="p-3 bg-slate-900/60 rounded-xl border border-slate-800 space-y-2">
+                      <div className="w-1/2 h-3 bg-primary/20 rounded" />
+                      <div className="w-full h-2.5 bg-slate-800 rounded" />
+                      <div className="w-3/4 h-2.5 bg-slate-800 rounded" />
                     </div>
-                    <div className="h-3 w-8 bg-slate-300 rounded-md" />
-                  </div>
-                </div>
 
-                {/* Absolute overlay items for depth */}
-                <div className="absolute bottom-6 right-6 p-3 bg-slate-900 text-white rounded-xl shadow-xl space-y-1.5 translate-x-2 translate-y-2 scale-105 border border-slate-800">
-                  <div className="text-[10px] uppercase tracking-wider text-slate-400">Response Speed</div>
-                  <div className="text-lg font-bold flex items-center gap-1.5">
-                    0.24s <span className="text-xs text-emerald-400 font-medium">▲ 12%</span>
+                    <div className="p-3 bg-slate-900/60 rounded-xl border border-slate-800 space-y-2">
+                      <div className="w-1/3 h-3 bg-slate-800 rounded" />
+                      <div className="w-full h-2.5 bg-slate-800/40 rounded" />
+                    </div>
+
+                    <div className="p-3 bg-slate-900/60 rounded-xl border border-slate-800 space-y-2">
+                      <div className="w-2/3 h-3 bg-slate-800 rounded" />
+                      <div className="w-full h-2.5 bg-slate-800/40 rounded" />
+                    </div>
                   </div>
+
+                  {/* Phone Bottom indicator */}
+                  <div className="w-16 h-1 bg-slate-800 rounded-full mx-auto" />
                 </div>
               </div>
 
-              {/* Backglow effect */}
-              <div className="absolute right-[-20px] bottom-[-20px] w-40 h-40 bg-primary/20 rounded-full blur-[40px] -z-10" />
             </div>
           </div>
 
         </div>
+
+        {/* Muted Grayscale Brands logos bar */}
+        <div className="mt-24 pt-8 border-t border-slate-900/80">
+          <div className="text-center space-y-6">
+            <p className="text-xs font-bold text-slate-500 uppercase tracking-widest">
+              Trusted by Global Innovators & Leading Brands
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6 text-slate-500">
+              {brands.map((brand) => (
+                <div key={brand.name} className="flex items-center">
+                  {brand.svg}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
   );
