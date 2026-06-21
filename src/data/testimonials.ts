@@ -1,4 +1,5 @@
 import type { Testimonial } from '../types';
+import woman1 from '../assets/images/Woman-1.png';
 
 export const testimonials: Testimonial[] = [
   {
@@ -16,7 +17,7 @@ export const testimonials: Testimonial[] = [
     position: 'Product Manager',
     company: 'Finovate',
     message: 'The team delivered exactly what we needed — on time and with outstanding quality. Their attention to detail and communication were top-notch.',
-    avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80',
+    avatar: woman1,
     rating: 5,
   },
   {

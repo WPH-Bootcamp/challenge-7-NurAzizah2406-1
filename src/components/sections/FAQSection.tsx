@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import Button from '../ui/Button';
+import consultationImg from '../../assets/images/ConsultationImage.png';
+import containerBg from '../../assets/icons/Container-1.png';
+import plusIcon from '../../assets/icons/plus.png';
+import minusIcon from '../../assets/icons/minus.png';
 
 interface FAQItem {
   question: string;
@@ -62,8 +66,12 @@ const FAQSection = () => {
                       className="w-full flex items-center justify-between text-left font-bold text-sm sm:text-base text-white hover:text-primary transition-colors cursor-pointer select-none"
                     >
                       <span>{faq.question}</span>
-                      <span className="text-lg font-bold text-primary w-6 h-6 flex items-center justify-center select-none">
-                        {isOpen ? '−' : '+'}
+                      <span className="w-5 h-5 flex items-center justify-center select-none shrink-0 ml-4">
+                        {isOpen ? (
+                          <img src={minusIcon} alt="collapse" className="w-3.5 h-3.5 object-contain dark:invert" />
+                        ) : (
+                          <img src={plusIcon} alt="expand" className="w-3.5 h-3.5 object-contain dark:invert" />
+                        )}
                       </span>
                     </button>
 
@@ -85,8 +93,13 @@ const FAQSection = () => {
           {/* Right Column: Let's talk it through CTA Card */}
           <div className="lg:col-span-5 w-full flex justify-center">
             <div className="w-full max-w-sm bg-gradient-to-br from-[#e0583b] to-[#c83e23] rounded-3xl p-8 space-y-6 shadow-2xl relative overflow-hidden flex flex-col justify-between">
+              {/* Background Pattern overlay */}
+              <div 
+                className="absolute inset-0 opacity-15 mix-blend-overlay pointer-events-none bg-cover bg-center" 
+                style={{ backgroundImage: `url(${containerBg})` }}
+              />
               
-              <div className="space-y-2">
+              <div className="space-y-2 relative z-10">
                 <h3 className="text-2xl font-bold tracking-tight text-white leading-tight">
                   Let’s talk it through
                 </h3>
@@ -96,17 +109,17 @@ const FAQSection = () => {
               </div>
 
               {/* Consultation Team Image */}
-              <div className="aspect-[16/10] w-full rounded-2xl overflow-hidden bg-slate-900 shadow-lg border border-white/10">
+              <div className="aspect-[16/10] w-full rounded-2xl overflow-hidden bg-slate-900 shadow-lg border border-white/10 relative z-10">
                 <img
-                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80"
+                  src={consultationImg}
                   alt="Team discussion"
                   className="w-full h-full object-cover opacity-90"
                 />
               </div>
 
-              <div className="pt-2">
+              <div className="pt-2 relative z-10">
                 <Button
-                  className="w-full bg-white hover:bg-slate-50 text-slate-900 border-none rounded-2xl py-3.5 font-bold tracking-wide transition-all shadow-xl"
+                  className="w-full bg-white hover:bg-slate-50 text-slate-900 border-none rounded-2xl py-3.5 font-bold tracking-wide transition-all shadow-xl cursor-pointer"
                   onClick={() => {
                     const el = document.getElementById('contact');
                     if (el) el.scrollIntoView({ behavior: 'smooth' });

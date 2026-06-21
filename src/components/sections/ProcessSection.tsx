@@ -1,5 +1,5 @@
-import React from 'react';
 import { processSteps } from '../../data/process';
+import chevronUp from '../../assets/icons/chevron-up.png';
 
 const ProcessSection = () => {
   return (
@@ -19,7 +19,7 @@ const ProcessSection = () => {
           </p>
         </div>
 
-        {/* Zigzag Timeline Layout — matches Figma exactly */}
+        {/* Zigzag Timeline Layout */}
         <div className="relative">
           {/* Central Vertical Line */}
           <div className="absolute left-1/2 top-5 bottom-5 w-[2px] bg-gray-200 dark:bg-slate-800 -translate-x-1/2 pointer-events-none hidden lg:block" />
@@ -42,21 +42,23 @@ const ProcessSection = () => {
                     }`}
                   >
                     <div className="bg-white dark:bg-[#0b0f19] border border-gray-200 dark:border-slate-800/80 rounded-2xl px-6 py-4 shadow-sm hover:shadow-md hover:border-primary/30 transition-all duration-300 flex items-center justify-between gap-4">
-                      <div className={`${isEven ? 'order-1' : 'order-1'}`}>
+                      <div>
                         <h3 className="text-base font-bold text-gray-900 dark:text-white">{step.title}</h3>
                         <p className="text-xs text-gray-500 dark:text-slate-400 mt-0.5">{step.description}</p>
                       </div>
-                      {/* Chevron icon */}
-                      <div className="shrink-0 text-gray-400 dark:text-slate-500">
-                        <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                          <polyline points="18 15 12 9 6 15" />
-                        </svg>
+                      {/* Chevron-up icon from assets */}
+                      <div className="shrink-0">
+                        <img
+                          src={chevronUp}
+                          alt="step"
+                          className="w-4 h-4 object-contain opacity-40 dark:invert"
+                        />
                       </div>
                     </div>
                   </div>
 
                   {/* Circle Number on Center Line */}
-                  <div className="hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-primary text-white font-extrabold items-center justify-center z-10 text-sm shadow-lg shadow-primary/30 glow-timeline-dot select-none">
+                  <div className="hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-primary text-white font-extrabold items-center justify-center z-10 text-sm shadow-lg shadow-primary/30 select-none">
                     {step.id}
                   </div>
 

@@ -1,7 +1,7 @@
-import React from 'react';
 import { companyInfo } from '../../data/company';
 import { Check } from '../ui/Icons';
 import useScrollAnimation from '../../hooks/useScrollAnimation';
+import consultationImg from '../../assets/images/ConsultationImage.png';
 
 const AboutSection = () => {
   const leftRef = useScrollAnimation<HTMLDivElement>('animate-fade-left');
@@ -34,35 +34,26 @@ const AboutSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
 
-          {/* Visual Grid representing values */}
+          {/* Visual: Consultation Image */}
           <div ref={leftRef} className="lg:col-span-6 order-2 lg:order-1 opacity-0">
-            <div className="grid grid-cols-2 gap-4">
-              {/* Card 1 */}
-              <div className="p-6 bg-white dark:bg-[#0b0f19] border border-gray-100 dark:border-slate-800/80 rounded-xl space-y-3 hover:shadow-md hover:border-primary/20 transition-all shadow-sm">
-                <div className="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center font-bold text-lg">💡</div>
-                <h3 className="font-bold text-gray-900 dark:text-white">Innovation</h3>
-                <p className="text-xs text-gray-500 dark:text-slate-400">Always adopting modern technologies and design practices.</p>
-              </div>
-
-              {/* Card 2 */}
-              <div className="p-6 bg-white dark:bg-[#0b0f19] border border-gray-100 dark:border-slate-800/80 rounded-xl space-y-3 translate-y-4 hover:shadow-md hover:border-primary/20 transition-all shadow-sm">
-                <div className="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-950/20 text-emerald-500 flex items-center justify-center font-bold text-lg">💎</div>
-                <h3 className="font-bold text-gray-900 dark:text-white">Quality</h3>
-                <p className="text-xs text-gray-500 dark:text-slate-400">Meticulous pixel-perfect UI execution and robust testing.</p>
-              </div>
-
-              {/* Card 3 */}
-              <div className="p-6 bg-white dark:bg-[#0b0f19] border border-gray-100 dark:border-slate-800/80 rounded-xl space-y-3 -translate-y-4 hover:shadow-md hover:border-primary/20 transition-all shadow-sm">
-                <div className="w-10 h-10 rounded-lg bg-blue-50 dark:bg-blue-950/20 text-blue-500 flex items-center justify-center font-bold text-lg">🤝</div>
-                <h3 className="font-bold text-gray-900 dark:text-white">Trust</h3>
-                <p className="text-xs text-gray-500 dark:text-slate-400">Reliable partners committed to your long-term success.</p>
-              </div>
-
-              {/* Card 4 */}
-              <div className="p-6 bg-white dark:bg-[#0b0f19] border border-gray-100 dark:border-slate-800/80 rounded-xl space-y-3 hover:shadow-md hover:border-primary/20 transition-all shadow-sm">
-                <div className="w-10 h-10 rounded-lg bg-indigo-50 dark:bg-indigo-950/20 text-indigo-500 flex items-center justify-center font-bold text-lg">⚡</div>
-                <h3 className="font-bold text-gray-900 dark:text-white">Speed</h3>
-                <p className="text-xs text-gray-500 dark:text-slate-400">Fast, streamlined coding that hits delivery timelines.</p>
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-gray-100 dark:border-slate-800/60">
+              <img
+                src={consultationImg}
+                alt="Team Consultation"
+                className="w-full h-full object-cover"
+              />
+              {/* Decorative gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 via-transparent to-transparent pointer-events-none" />
+              
+              {/* Floating badge */}
+              <div className="absolute bottom-6 left-6 right-6 bg-white/90 dark:bg-[#0b0f19]/90 backdrop-blur-sm border border-gray-100 dark:border-slate-800/60 rounded-2xl px-5 py-4 shadow-xl flex items-center gap-4">
+                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                  <span className="text-lg">🚀</span>
+                </div>
+                <div>
+                  <p className="text-sm font-bold text-gray-900 dark:text-white">500+ Projects Delivered</p>
+                  <p className="text-xs text-gray-500 dark:text-slate-400">Across 30+ industries worldwide</p>
+                </div>
               </div>
             </div>
           </div>

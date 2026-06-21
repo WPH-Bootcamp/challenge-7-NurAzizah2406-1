@@ -1,11 +1,15 @@
 import type { TeamMember } from '../types';
+import woman1 from '../assets/images/Woman-1.png';
+import buildingFast from '../assets/images/imagebuildingfast.png';
+import delonLorenzo from '../assets/images/imagedelonlorenzo.png';
+import willyNielsen from '../assets/images/imagewillynielsen.png';
 
 export const teamMembers: TeamMember[] = [
   {
     id: 1,
     name: 'Sarah Chen',
     position: 'Chief Executive Officer',
-    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80',
+    image: woman1,
     socialLinks: {
       linkedin: 'https://linkedin.com',
       twitter: 'https://twitter.com',
@@ -14,9 +18,9 @@ export const teamMembers: TeamMember[] = [
   },
   {
     id: 2,
-    name: 'Michael Vance',
+    name: 'Delon Lorenzo',
     position: 'Chief Technology Officer',
-    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80',
+    image: delonLorenzo,
     socialLinks: {
       linkedin: 'https://linkedin.com',
       twitter: 'https://twitter.com',
@@ -27,7 +31,7 @@ export const teamMembers: TeamMember[] = [
     id: 3,
     name: 'Jessica Taylor',
     position: 'Head of UI/UX Design',
-    image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80',
+    image: buildingFast,
     socialLinks: {
       linkedin: 'https://linkedin.com',
       twitter: 'https://twitter.com',
@@ -35,9 +39,9 @@ export const teamMembers: TeamMember[] = [
   },
   {
     id: 4,
-    name: 'David Kim',
+    name: 'Willy Nielsen',
     position: 'Lead Software Architect',
-    image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=600&q=80',
+    image: willyNielsen,
     socialLinks: {
       linkedin: 'https://linkedin.com',
       github: 'https://github.com',

@@ -1,7 +1,10 @@
 import { useState, useEffect } from 'react';
 import { navItems } from '../../data/navigation';
-import { Menu, X, Sun, Moon } from '../ui/Icons';
+import { Sun, Moon } from '../ui/Icons';
 import Button from '../ui/Button';
+import logoSymbol from '../../assets/icons/logo-symbol.png';
+import menuIcon from '../../assets/icons/menu.png';
+import closeIcon from '../../assets/icons/x-close.png';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -61,13 +64,14 @@ const Navbar = () => {
               href="#home"
               className="flex items-center gap-2.5 text-xl font-bold tracking-tight transition-colors text-gray-900 dark:text-white"
             >
-              <div className="relative w-6 h-6 flex items-center justify-center">
-                <svg className="w-full h-full text-primary" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 2L4 10L12 18L20 10L12 2Z" fill="currentColor" fillOpacity="0.8" />
-                  <path d="M12 8L7 13L12 18L17 13L12 8Z" fill="#ff8164" />
-                </svg>
+              <div className="relative w-7 h-7 flex items-center justify-center">
+                <img
+                  src={logoSymbol}
+                  alt="Logo"
+                  className="w-full h-full object-contain"
+                />
               </div>
-              <span>Your Logo</span>
+              <span>Innovatech</span>
             </a>
           </div>
 
@@ -119,7 +123,11 @@ const Navbar = () => {
               aria-label="Toggle menu"
               aria-expanded={isOpen}
             >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isOpen ? (
+                <img src={closeIcon} alt="Close menu" className="h-6 w-6 object-contain dark:invert" />
+              ) : (
+                <img src={menuIcon} alt="Open menu" className="h-6 w-6 object-contain dark:invert" />
+              )}
             </button>
           </div>
         </div>

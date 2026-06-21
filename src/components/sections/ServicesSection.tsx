@@ -1,67 +1,31 @@
-import React from 'react';
 import { services } from '../../data/services';
 import Card from '../ui/Card';
-import { Monitor } from '../ui/Icons';
+
+// Import service icon PNG assets
+import webIcon from '../../assets/icons/WebDevelopment.png';
+import mobileIcon from '../../assets/icons/AppDevelopment.png';
+import uiuxIcon from '../../assets/icons/UXDesign.png';
+import cloudIcon from '../../assets/icons/Cloud Solutions.png';
+import softwareIcon from '../../assets/icons/SoftwareDevelopment.png';
+import infrastructureIcon from '../../assets/icons/ITInfrastructure.png';
+import cybersecurityIcon from '../../assets/icons/CybersecurityServices.png';
+import qaIcon from '../../assets/icons/QASolutions.png';
+import supportIcon from '../../assets/icons/Consulting&Support.png';
+import chevronRight from '../../assets/icons/chevron-right.png';
+
+const iconMap: Record<string, string> = {
+  web: webIcon,
+  mobile: mobileIcon,
+  uiux: uiuxIcon,
+  cloud: cloudIcon,
+  software: softwareIcon,
+  infrastructure: infrastructureIcon,
+  cybersecurity: cybersecurityIcon,
+  qa: qaIcon,
+  support: supportIcon,
+};
 
 const ServicesSection = () => {
-  // Custom theme SVGs corresponding to the 9 services of the Figma design
-  const iconMap: Record<string, React.ReactNode> = {
-    web: (
-      <svg className="w-8 h-8 text-primary drop-shadow-[0_0_8px_rgba(255,107,74,0.3)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
-        <line x1="8" y1="21" x2="16" y2="21" />
-        <line x1="12" y1="17" x2="12" y2="21" />
-      </svg>
-    ),
-    mobile: (
-      <svg className="w-8 h-8 text-primary drop-shadow-[0_0_8px_rgba(255,107,74,0.3)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
-        <line x1="12" y1="18" x2="12.01" y2="18" />
-      </svg>
-    ),
-    uiux: (
-      <svg className="w-8 h-8 text-primary drop-shadow-[0_0_8px_rgba(255,107,74,0.3)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" />
-        <path d="M12 8V16M8 12H16" />
-      </svg>
-    ),
-    cloud: (
-      <svg className="w-8 h-8 text-primary drop-shadow-[0_0_8px_rgba(255,107,74,0.3)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z" />
-      </svg>
-    ),
-    software: (
-      <svg className="w-8 h-8 text-primary drop-shadow-[0_0_8px_rgba(255,107,74,0.3)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <polyline points="16 18 22 12 16 6" />
-        <polyline points="8 6 2 12 8 18" />
-      </svg>
-    ),
-    infrastructure: (
-      <svg className="w-8 h-8 text-primary drop-shadow-[0_0_8px_rgba(255,107,74,0.3)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="2" y="2" width="20" height="8" rx="2" ry="2" />
-        <rect x="2" y="14" width="20" height="8" rx="2" ry="2" />
-        <line x1="6" y1="6" x2="6.01" y2="6" />
-        <line x1="6" y1="18" x2="6.01" y2="18" />
-      </svg>
-    ),
-    cybersecurity: (
-      <svg className="w-8 h-8 text-primary drop-shadow-[0_0_8px_rgba(255,107,74,0.3)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-      </svg>
-    ),
-    qa: (
-      <svg className="w-8 h-8 text-primary drop-shadow-[0_0_8px_rgba(255,107,74,0.3)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="11" cy="11" r="8" />
-        <line x1="21" y1="21" x2="16.65" y2="16.65" />
-      </svg>
-    ),
-    support: (
-      <svg className="w-8 h-8 text-primary drop-shadow-[0_0_8px_rgba(255,107,74,0.3)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-      </svg>
-    ),
-  };
-
   return (
     <section id="services" className="py-24 bg-secondary text-white relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -85,8 +49,18 @@ const ServicesSection = () => {
             >
               <div className="space-y-4">
                 {/* Icon Container */}
-                <div className="w-16 h-16 rounded-2xl bg-slate-900 flex items-center justify-center border border-slate-850 group-hover:border-primary/30 transition-colors duration-300">
-                  {iconMap[service.icon] || <Monitor className="w-8 h-8 text-primary" />}
+                <div className="w-16 h-16 rounded-2xl bg-slate-900 flex items-center justify-center border border-slate-850 group-hover:border-primary/30 transition-colors duration-300 p-3">
+                  {iconMap[service.icon] ? (
+                    <img
+                      src={iconMap[service.icon]}
+                      alt={service.title}
+                      className="w-full h-full object-contain"
+                    />
+                  ) : (
+                    <svg className="w-8 h-8 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <rect x="2" y="3" width="20" height="14" rx="2" />
+                    </svg>
+                  )}
                 </div>
 
                 <h3 className="text-lg font-bold text-white group-hover:text-primary transition-colors">
@@ -98,9 +72,10 @@ const ServicesSection = () => {
                 </p>
               </div>
 
-              {/* Decorative CTA text */}
+              {/* Decorative CTA with chevron icon */}
               <div className="pt-6 mt-6 border-t border-slate-900 flex items-center gap-1.5 text-[11px] font-bold text-primary opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-[-5px] group-hover:translate-x-0">
-                Learn more <span>→</span>
+                Learn more
+                <img src={chevronRight} alt="→" className="w-3 h-3 object-contain" style={{ filter: 'hue-rotate(0deg) saturate(10) brightness(0.8) sepia(1) hue-rotate(330deg) saturate(5)' }} />
               </div>
             </Card>
           ))}
