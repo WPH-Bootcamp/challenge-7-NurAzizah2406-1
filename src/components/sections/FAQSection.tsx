@@ -16,19 +16,19 @@ const FAQSection = () => {
     },
     {
       question: 'How do I know if this is right for my business?',
-      answer: 'Our consultation process analyzes your business bottlenecks and maps out custom technology solutions that align with your scalability targets.',
+      answer: 'Book a free consult — we’ll assess your goals and recommend the right approach.',
     },
     {
       question: 'How much does a project cost?',
-      answer: 'Costs vary based on complexity, features, and timeline requirements. We provide a transparent scope-of-work breakdown before starting.',
+      answer: 'Every project is different. Let’s talk about your needs to get a tailored estimate.',
     },
     {
       question: 'How long does it take?',
-      answer: 'Standard projects take between 4 to 8 weeks. We deliver incrementally with continuous staging updates.',
+      answer: 'Depends on scope — but we always prioritize quality and deadlines.',
     },
     {
       question: 'Can I start with a small project first?',
-      answer: 'Yes! We support starting with a Minimum Viable Product (MVP) or initial consulting scope to establish alignment and trust.',
+      answer: 'Absolutely. We often begin with MVPs or pilot projects.',
     },
   ];
 

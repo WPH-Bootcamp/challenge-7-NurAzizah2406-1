@@ -5,7 +5,7 @@ import { Linkedin, Twitter, Github } from '../ui/Icons';
 
 const TeamSection = () => {
   return (
-    <section id="team" className="py-20 bg-slate-50">
+    <section id="team" className="py-20 bg-[#020617] text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header Section */}
@@ -13,10 +13,10 @@ const TeamSection = () => {
           <span className="text-xs font-bold uppercase tracking-wider text-primary">
             Our Talent
           </span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-secondary">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white">
             Meet the Experts Behind Innovatech
           </h2>
-          <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+          <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
             Our multi-disciplinary team brings together decades of software development and creative expertise to steer projects toward successful launches.
           </p>
         </div>
@@ -26,7 +26,7 @@ const TeamSection = () => {
           {teamMembers.map((member) => (
             <Card
               key={member.id}
-              className="p-0 overflow-hidden border-slate-100/50 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 group flex flex-col items-center bg-white text-center"
+              className="p-0 overflow-hidden border-slate-800/80 hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-1.5 transition-all duration-300 group flex flex-col items-center bg-[#0a0f1d] text-center"
             >
               {/* Profile Image Frame */}
               <div className="relative w-full aspect-square bg-slate-100 overflow-hidden">
@@ -77,7 +77,7 @@ const TeamSection = () => {
 
               {/* Detail Info */}
               <div className="p-6 space-y-1">
-                <h3 className="text-base font-extrabold text-secondary group-hover:text-primary transition-colors">
+                <h3 className="text-base font-extrabold text-white group-hover:text-primary transition-colors">
                   {member.name}
                 </h3>
                 <p className="text-xs font-semibold text-primary/85">
