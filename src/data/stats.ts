@@ -3,22 +3,22 @@ import { StatItem } from '../types';
 export const stats: StatItem[] = [
   {
     id: 1,
-    value: '250+',
+    value: '50+',
     label: 'Projects Delivered',
   },
   {
     id: 2,
-    value: '99%',
-    label: 'Client Satisfaction',
+    value: '5+',
+    label: 'Years of Experience',
   },
   {
     id: 3,
-    value: '50+',
-    label: 'Expert Developers',
+    value: '10+',
+    label: 'Industry Awards Won',
   },
   {
     id: 4,
-    value: '10+',
-    label: 'Years of Experience',
+    value: '100%',
+    label: 'Client Satisfaction Rate',
   },
 ];

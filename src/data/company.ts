@@ -1,17 +1,17 @@
 import { CompanyInfo } from '../types';
 
 export const companyInfo: CompanyInfo = {
-  name: 'Innovatech',
-  tagline: 'Empowering Growth Through Digital Excellence',
-  description: 'We are a progressive technology agency crafting digital solutions that push boundaries. With a blend of strategic thinking, top-tier engineering, and visual artistry, we transform complex challenges into elegant, high-impact web and mobile experiences.',
-  email: 'hello@innovatech.com',
+  name: 'Your Logo', // Will render the logo icon and title
+  tagline: 'Your Tech Partner for Smarter Growth',
+  description: 'We deliver tailored IT solutions to help you scale with speed and confidence.',
+  email: 'hello@yourlogo.com',
   phone: '+62 (21) 555-0199',
-  address: 'Grand Capital Tower, 18th Floor, Jakarta, Indonesia',
+  address: 'Capital Tower, 12th Floor, Jakarta, Indonesia',
   social: {
-    facebook: 'https://facebook.com/innovatech',
-    instagram: 'https://instagram.com/innovatech',
-    linkedin: 'https://linkedin.com/company/innovatech',
-    twitter: 'https://twitter.com/innovatech',
-    github: 'https://github.com/innovatech',
+    facebook: 'https://facebook.com',
+    instagram: 'https://instagram.com',
+    linkedin: 'https://linkedin.com',
+    twitter: 'https://twitter.com',
+    github: 'https://github.com',
   },
 };

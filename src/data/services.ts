@@ -3,26 +3,56 @@ import { ServiceItem } from '../types';
 export const services: ServiceItem[] = [
   {
     id: 1,
-    title: 'UI/UX Design',
-    description: 'User-centric interfaces crafted with meticulous attention to detail, ensuring seamless user journeys and high engagement.',
-    icon: 'uiux',
-  },
-  {
-    id: 2,
     title: 'Web Development',
-    description: 'High-performance, secure, and fully responsive websites and web applications tailored to scale with your business growth.',
+    description: 'Build fast, scalable, and SEO-friendly websites.',
     icon: 'web',
   },
   {
-    id: 3,
+    id: 2,
     title: 'Mobile App Development',
-    description: 'Premium native and cross-platform mobile solutions designed to deliver exceptionally smooth experiences on iOS and Android.',
+    description: 'Native & cross-platform apps tailored to user needs.',
     icon: 'mobile',
   },
   {
+    id: 3,
+    title: 'UI/UX Design',
+    description: 'Delight users with intuitive and beautiful interfaces.',
+    icon: 'uiux',
+  },
+  {
     id: 4,
-    title: 'Cloud & Infrastructure',
-    description: 'Robust cloud architectures, deployment pipelines, and scaling strategies built to ensure 99.9% uptime and peak security.',
+    title: 'Cloud Solutions',
+    description: 'Secure and flexible cloud infrastructure for your growth.',
     icon: 'cloud',
+  },
+  {
+    id: 5,
+    title: 'Software Development',
+    description: 'Custom solutions built around your business logic.',
+    icon: 'software',
+  },
+  {
+    id: 6,
+    title: 'IT Infrastructure',
+    description: 'Scale your backend with reliable tech foundations.',
+    icon: 'infrastructure',
+  },
+  {
+    id: 7,
+    title: 'Cybersecurity Services',
+    description: 'Stay protected with enterprise-grade security.',
+    icon: 'cybersecurity',
+  },
+  {
+    id: 8,
+    title: 'QA Solutions',
+    description: 'Ensure performance with rigorous testing frameworks.',
+    icon: 'qa',
+  },
+  {
+    id: 9,
+    title: 'IT Consulting & Support',
+    description: 'Make smarter tech decisions with expert guidance.',
+    icon: 'support',
   },
 ];
