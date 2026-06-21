@@ -1,9 +1,4 @@
-/**
- * Main CSS File
- *
- * Tailwind CSS v4 - Using new @import syntax
- * Docs: https://tailwindcss.com/docs/installation/using-vite
- */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
 @import "tailwindcss";
 
@@ -11,34 +6,44 @@
 @source "./**/*.{js,jsx,ts,tsx}";
 @source "../index.html";
 
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  
+  --color-primary: #ff6b4a;
+  --color-primary-hover: #ff5733;
+  --color-primary-light: #ff6b4a/15;
+  
+  --color-secondary: #030712;
+  --color-secondary-hover: #090f1d;
+  --color-secondary-light: #1f2937;
+
+  --color-card: #0b0f19;
+  --color-accent: #f59e0b;
+}
+
 /**
  * Custom Global Styles
- *
- * Add your custom global styles here if needed
- * Prefer using Tailwind utilities in components
  */
 
 /* Smooth scrolling for anchor links */
 html {
   scroll-behavior: smooth;
+  font-family: var(--font-sans);
+  background-color: #030712;
 }
 
-/* Optional: Custom scrollbar styles */
-/* Uncomment if you want custom scrollbar
-::-webkit-scrollbar {
-  width: 10px;
+body {
+  background-color: #030712;
+  color: #f3f4f6;
+  -webkit-font-smoothing: antialiased;
 }
 
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
+/* Custom styles for glowing effects */
+.glow-primary {
+  box-shadow: 0 0 40px -5px rgba(255, 107, 74, 0.15);
 }
 
-::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 5px;
+.glow-timeline-dot {
+  box-shadow: 0 0 12px 2px rgba(255, 107, 74, 0.4);
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
-*/
