@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Button from '../ui/Button';
 import consultationImg from '../../assets/images/ConsultationImage.png';
 import containerBg from '../../assets/icons/Container-1.png';

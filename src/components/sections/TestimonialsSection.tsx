@@ -1,4 +1,3 @@
-import React from 'react';
 import { testimonials } from '../../data/testimonials';
 import { Star } from '../ui/Icons';
 import Card from '../ui/Card';

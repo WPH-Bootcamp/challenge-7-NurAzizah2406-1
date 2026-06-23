@@ -1,4 +1,3 @@
-import React from 'react';
 import { stats } from '../../data/stats';
 
 const StatsSection = () => {

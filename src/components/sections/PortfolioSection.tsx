@@ -1,4 +1,3 @@
-import React from 'react';
 import { portfolioItems } from '../../data/portfolio';
 import Card from '../ui/Card';
 

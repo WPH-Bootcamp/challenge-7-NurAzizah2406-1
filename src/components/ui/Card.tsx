@@ -1,4 +1,3 @@
-import React from 'react';
 import type { CardProps } from '../../types';
 
 const Card = ({ children, className = '', onClick }: CardProps) => {

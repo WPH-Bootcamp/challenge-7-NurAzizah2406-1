@@ -1,4 +1,3 @@
-import React from 'react';
 import { teamMembers } from '../../data/team';
 import Card from '../ui/Card';
 import { Linkedin, Twitter, Github } from '../ui/Icons';
