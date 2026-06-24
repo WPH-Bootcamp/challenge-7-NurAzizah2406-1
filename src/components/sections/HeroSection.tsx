@@ -3,27 +3,67 @@ import propertyLight from '../../assets/images/Property-1-Light.png';
 import propertyDark from '../../assets/images/Propertydark.png';
 import container2 from '../../assets/images/Container-2.png';
 
+// Styled SVG Icons for Brand Logos matching Figma mockup
+const UpworkIcon = () => (
+  <svg className="w-5 h-5 opacity-70 group-hover:opacity-100 transition-opacity" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M12 3a9 9 0 0 0-9 9c0 4.97 4.03 9 9 9s9-4.03 9-9a9 9 0 0 0-9-9z"/>
+    <path d="M12 8v8M9 11h6"/>
+  </svg>
+);
+
+const PostmanIcon = () => (
+  <svg className="w-5 h-5 opacity-70 group-hover:opacity-100 transition-opacity" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="12" r="10"/>
+    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+    <path d="M2 12h20"/>
+  </svg>
+);
+
+const DatabricksIcon = () => (
+  <svg className="w-5 h-5 opacity-70 group-hover:opacity-100 transition-opacity" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+  </svg>
+);
+
+const AirbnbIcon = () => (
+  <svg className="w-5 h-5 opacity-70 group-hover:opacity-100 transition-opacity" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+    <path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 3a8 8 0 0 1 8 7.2c0 7.3-8 11.8-8 11.8z"/>
+    <circle cx="12" cy="10" r="3"/>
+  </svg>
+);
+
+const DropboxIcon = () => (
+  <svg className="w-5 h-5 opacity-70 group-hover:opacity-100 transition-opacity" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+    <path d="M6 2L2 5l4 3 4-3-4-3zm12 0l-4 3 4 3 4-3-4-3zM2 12l4 3 4-3-4-3-4 3zm20 0l-4-3-4 3 4 3 4-3zM6 15l6 4.5 6-4.5"/>
+  </svg>
+);
+
+const PaypalIcon = () => (
+  <svg className="w-4.5 h-5 opacity-70 group-hover:opacity-100 transition-opacity" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M20 7.5c0 3-2.5 5.5-5.5 5.5h-3.3l-1 4.5H7.3l2.2-9.7H14c3 0 6 1.7 6 4.2z M15.5 10c0 3-2.5 5.5-5.5 5.5H8.7l-.7 3h-2.5l2.2-9.7H11c3 0 4.5 1.2 4.5 3.2z" />
+  </svg>
+);
+
 const HeroSection = () => {
   const scrollToContact = () => {
     const el = document.getElementById('contact');
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
 
-  // Brand logo names — rendered as styled text to avoid external image deps
-  const brandNames = [
-    { name: 'upwork', style: 'italic' as const },
-    { name: 'zoom', style: 'normal' as const },
-    { name: 'POSTMAN', style: 'normal' as const },
-    { name: 'databricks', style: 'normal' as const },
-    { name: 'airbnb', style: 'normal' as const },
-    { name: 'Dropbox', style: 'normal' as const },
-    { name: 'PayPal', style: 'italic' as const },
+  const brandLogos = [
+    { name: 'upwork', icon: <UpworkIcon />, style: 'font-sans font-bold text-base sm:text-lg lowercase' },
+    { name: 'zoom', icon: null, style: 'font-sans font-extrabold text-xl sm:text-2xl lowercase tracking-tight' },
+    { name: 'POSTMAN', icon: <PostmanIcon />, style: 'font-sans font-bold text-xs sm:text-sm tracking-widest uppercase' },
+    { name: 'databricks', icon: <DatabricksIcon />, style: 'font-sans font-semibold text-sm sm:text-base tracking-tight' },
+    { name: 'airbnb', icon: <AirbnbIcon />, style: 'font-sans font-bold text-sm sm:text-base tracking-tight lowercase' },
+    { name: 'Dropbox', icon: <DropboxIcon />, style: 'font-sans font-semibold text-sm sm:text-base tracking-tight' },
+    { name: 'PayPal', icon: <PaypalIcon />, style: 'font-sans font-extrabold italic text-base sm:text-lg tracking-tight' },
   ];
 
   return (
     <section
       id="home"
-      className="relative min-h-screen flex flex-col justify-center bg-white dark:bg-[#030712] pt-28 pb-16 overflow-hidden"
+      className="relative min-h-screen flex flex-col justify-center bg-white dark:bg-[#030712] pt-28 pb-16 overflow-hidden animate-fade-in"
     >
       {/* Subtle background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-orange-50/60 via-white to-slate-50 dark:from-orange-950/20 dark:via-[#030712] dark:to-slate-950 pointer-events-none" />
@@ -49,8 +89,7 @@ const HeroSection = () => {
 
             <div className="pt-2">
               <Button
-                variant="primary"
-                className="rounded-full px-8 py-3.5 text-base font-semibold shadow-lg shadow-primary/20 hover:shadow-primary/40"
+                className="rounded-full px-8 py-3.5 text-base font-semibold bg-gradient-to-r from-[#ff6b4a] to-[#ff4f2b] hover:from-[#ff5733] hover:to-[#e03d1a] text-white shadow-lg shadow-primary/20 hover:shadow-primary/40 border-none transition-all duration-300 cursor-pointer"
                 onClick={scrollToContact}
               >
                 Let's Talk
@@ -81,15 +120,17 @@ const HeroSection = () => {
             <p className="text-xs font-bold text-gray-400 dark:text-slate-500 uppercase tracking-widest">
               Trusted by Global Innovators & Leading Brands
             </p>
-            <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
-              {brandNames.map((brand) => (
-                <span
+            <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
+              {brandLogos.map((brand) => (
+                <div
                   key={brand.name}
-                  className="text-gray-400 dark:text-slate-500 font-bold text-lg tracking-wide opacity-50 hover:opacity-90 transition-opacity select-none"
-                  style={{ fontStyle: brand.style }}
+                  className="flex items-center gap-1.5 text-gray-400 dark:text-slate-500 hover:text-gray-900 dark:hover:text-white transition-all select-none group"
                 >
-                  {brand.name}
-                </span>
+                  {brand.icon}
+                  <span className={`${brand.style} font-medium`}>
+                    {brand.name}
+                  </span>
+                </div>
               ))}
             </div>
           </div>

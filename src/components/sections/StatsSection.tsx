@@ -18,17 +18,17 @@ const StatsSection = () => {
           </p>
         </div>
 
-        {/* Circular Indicators Grid — light style matching Figma */}
+        {/* Circular Indicators Grid — style matching Figma */}
         <div className="flex flex-wrap justify-center gap-8 md:gap-12">
           {stats.map((stat) => (
             <div
               key={stat.id}
-              className="w-44 h-44 sm:w-48 sm:h-48 rounded-full border border-gray-200 dark:border-slate-800/80 bg-white dark:bg-[#0b0f19] flex flex-col items-center justify-center text-center p-6 transition-all duration-300 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/10 group"
+              className="w-44 h-44 sm:w-48 sm:h-48 rounded-full border border-transparent bg-gray-50 dark:bg-[#0b0f19] flex flex-col items-center justify-center text-center p-6 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 group"
             >
               <div className="text-3xl sm:text-4xl font-extrabold text-primary group-hover:scale-105 transition-transform duration-300">
                 {stat.value}
               </div>
-              <div className="text-[11px] sm:text-xs font-semibold text-gray-500 dark:text-slate-400 uppercase tracking-wider mt-2 px-2">
+              <div className="text-xs font-semibold text-gray-500 dark:text-slate-300 mt-2 px-2 leading-tight">
                 {stat.label}
               </div>
             </div>

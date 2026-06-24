@@ -1,9 +1,6 @@
 import { useState } from 'react';
-import Button from '../ui/Button';
 import consultationImg from '../../assets/images/ConsultationImage.png';
 import containerBg from '../../assets/icons/Container-1.png';
-import plusIcon from '../../assets/icons/plus.png';
-import minusIcon from '../../assets/icons/minus.png';
 
 interface FAQItem {
   question: string;
@@ -43,41 +40,46 @@ const FAQSection = () => {
   return (
     <section id="faq" className="py-24 bg-white dark:bg-[#030712] text-gray-900 dark:text-white relative transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        {/* Section Header Row matching Figma */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-end mb-5">
+          <div className="lg:col-span-7">
+            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+              Need Help? Start Here.
+            </h2>
+          </div>
+          <div className="lg:col-span-5 text-left lg:text-right">
+            <p className="text-gray-500 dark:text-slate-400 text-sm sm:text-base font-semibold">
+              Everything you need to know — all in one place.
+            </p>
+          </div>
+        </div>
+
+        {/* Full-width Divider Line */}
+        <div className="border-t border-gray-200 dark:border-slate-800/85 mb-8 w-full" />
+
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           
           {/* Left Column: FAQ Accordion */}
-          <div className="lg:col-span-7 space-y-8">
-            <div className="space-y-4">
-              <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
-                Need Help? Start Here.
-              </h2>
-              <p className="text-gray-500 dark:text-slate-400 text-sm">
-                Everything you need to know — all in one place.
-              </p>
-            </div>
-
-            <div className="border-t border-gray-200 dark:border-slate-800/80 divide-y divide-gray-200 dark:divide-slate-800/80">
+          <div className="lg:col-span-7">
+            <div className="divide-y divide-gray-200 dark:divide-slate-800/80 border-b border-gray-200 dark:border-slate-800/80">
               {faqs.map((faq, idx) => {
                 const isOpen = openIndex === idx;
                 return (
-                  <div key={idx} className="py-5">
+                  <div key={idx} className="group">
                     <button
                       onClick={() => toggleFAQ(idx)}
-                      className="w-full flex items-center justify-between text-left font-bold text-sm sm:text-base text-gray-900 dark:text-white hover:text-primary dark:hover:text-primary transition-colors cursor-pointer select-none"
+                      className="w-full flex items-center justify-between text-left font-bold text-sm sm:text-base text-gray-900 dark:text-white hover:text-primary dark:hover:text-primary transition-colors py-5 cursor-pointer select-none"
                     >
                       <span>{faq.question}</span>
-                      <span className="w-5 h-5 flex items-center justify-center select-none shrink-0 ml-4">
-                        {isOpen ? (
-                          <img src={minusIcon} alt="collapse" className="w-3.5 h-3.5 object-contain dark:invert" />
-                        ) : (
-                          <img src={plusIcon} alt="expand" className="w-3.5 h-3.5 object-contain dark:invert" />
-                        )}
+                      <span className="text-xl font-light shrink-0 ml-4 select-none text-gray-400 dark:text-slate-500 group-hover:text-primary">
+                        {isOpen ? '−' : '+'}
                       </span>
                     </button>
 
                     <div
                       className={`transition-all duration-300 ease-in-out overflow-hidden ${
-                        isOpen ? 'max-h-24 opacity-100 mt-3' : 'max-h-0 opacity-0'
+                        isOpen ? 'max-h-40 opacity-100 pb-5' : 'max-h-0 opacity-0'
                       }`}
                     >
                       <p className="text-xs sm:text-sm text-gray-500 dark:text-slate-400 leading-relaxed">
@@ -92,7 +94,7 @@ const FAQSection = () => {
 
           {/* Right Column: Let's talk it through CTA Card */}
           <div className="lg:col-span-5 w-full flex justify-center">
-            <div className="w-full max-w-sm bg-gradient-to-br from-[#e0583b] to-[#c83e23] rounded-3xl p-8 space-y-6 shadow-2xl relative overflow-hidden flex flex-col justify-between">
+            <div className="w-full max-w-md bg-[#d14d2a] rounded-[32px] p-8 sm:p-10 space-y-6 shadow-2xl relative overflow-hidden flex flex-col justify-between">
               {/* Background Pattern overlay */}
               <div 
                 className="absolute inset-0 opacity-15 mix-blend-overlay pointer-events-none bg-cover bg-center" 
@@ -100,33 +102,33 @@ const FAQSection = () => {
               />
               
               <div className="space-y-2 relative z-10">
-                <h3 className="text-2xl font-bold tracking-tight text-white leading-tight">
+                <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-white leading-tight">
                   Let’s talk it through
                 </h3>
-                <p className="text-white/80 text-xs sm:text-sm font-medium">
+                <p className="text-white/90 text-xs sm:text-sm font-medium lowercase">
                   book a free consultation with our team.
                 </p>
               </div>
 
               {/* Consultation Team Image */}
-              <div className="aspect-[16/10] w-full rounded-2xl overflow-hidden bg-slate-900 shadow-lg border border-white/10 relative z-10">
+              <div className="aspect-[16/10] w-full rounded-2xl overflow-hidden bg-slate-900 shadow-md border border-white/10 relative z-10">
                 <img
                   src={consultationImg}
                   alt="Team discussion"
-                  className="w-full h-full object-cover opacity-90"
+                  className="w-full h-full object-cover"
                 />
               </div>
 
               <div className="pt-2 relative z-10">
-                <Button
-                  className="w-full bg-white hover:bg-slate-50 text-slate-900 border-none rounded-2xl py-3.5 font-bold tracking-wide transition-all shadow-xl cursor-pointer"
+                <button
+                  className="w-full inline-flex items-center justify-center bg-white hover:bg-slate-50 text-[#d14d2a] hover:text-[#c83e23] border-none rounded-full py-4 font-extrabold tracking-wide transition-all shadow-xl cursor-pointer text-sm"
                   onClick={() => {
                     const el = document.getElementById('contact');
                     if (el) el.scrollIntoView({ behavior: 'smooth' });
                   }}
                 >
                   Free Consultation
-                </Button>
+                </button>
               </div>
             </div>
           </div>

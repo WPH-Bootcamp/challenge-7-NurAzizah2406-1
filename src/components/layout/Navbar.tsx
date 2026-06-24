@@ -71,7 +71,7 @@ const Navbar = () => {
                   className="w-full h-full object-contain"
                 />
               </div>
-              <span>Innovatech</span>
+              <span>YourLogo</span>
             </a>
           </div>
 
@@ -97,8 +97,7 @@ const Navbar = () => {
             </button>
 
             <Button
-              variant="primary"
-              className="rounded-full px-6 py-2.5 font-semibold text-sm"
+              className="rounded-full px-6 py-2.5 font-semibold text-sm bg-gradient-to-r from-[#ff6b4a] to-[#ff4f2b] hover:from-[#ff5733] hover:to-[#e03d1a] text-white border-none transition-all duration-300 cursor-pointer shadow-sm shadow-primary/20 hover:shadow-md"
               onClick={() => scrollToSection('contact')}
             >
               Let's Talk
@@ -154,8 +153,7 @@ const Navbar = () => {
           ))}
           <div className="px-3 pt-3">
             <Button
-              variant="primary"
-              className="w-full justify-center rounded-full font-semibold"
+              className="w-full justify-center rounded-full font-semibold bg-gradient-to-r from-[#ff6b4a] to-[#ff4f2b] hover:from-[#ff5733] hover:to-[#e03d1a] text-white border-none transition-all duration-300 cursor-pointer shadow-sm shadow-primary/20"
               onClick={() => scrollToSection('contact')}
             >
               Let's Talk

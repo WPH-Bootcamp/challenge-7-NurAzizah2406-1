@@ -33,11 +33,11 @@ const Footer = () => {
               <div className="relative w-8 h-8 flex items-center justify-center">
                 <img
                   src={logoSymbol}
-                  alt="Innovatech Logo"
+                  alt="YourLogo Logo"
                   className="w-full h-full object-contain"
                 />
               </div>
-              <span>Innovatech</span>
+              <span>YourLogo</span>
             </div>
           </div>
 
@@ -84,7 +84,7 @@ const Footer = () => {
 
           {/* Copyright and credits */}
           <div className="text-center pt-4 text-[11px] text-gray-400 dark:text-slate-500 flex flex-col sm:flex-row items-center justify-between gap-3">
-            <p>© {currentYear} Innovatech. All rights reserved.</p>
+            <p>© {currentYear} YourLogo. All rights reserved.</p>
             <p>Created to match Figma specs using React, TypeScript & TailwindCSS v4.</p>
           </div>
 

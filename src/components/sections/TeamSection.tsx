@@ -16,7 +16,7 @@ const TeamSection = () => {
             Our Talent
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">
-            Meet the Experts Behind Innovatech
+            Meet the Experts Behind YourLogo
           </h2>
           <p className="text-gray-500 dark:text-slate-400 text-sm sm:text-base leading-relaxed">
             Our multi-disciplinary team brings together decades of software development and creative expertise to steer projects toward successful launches.
